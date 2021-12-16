@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Bored Games</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_my_password">forgot my password</string>
 </resources>
