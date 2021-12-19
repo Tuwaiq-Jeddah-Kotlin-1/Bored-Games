@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tuwaiq.boredgames">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BoredGames">
         <activity
+            android:name=".Hangedman.GameState"
+            android:exported="true" />
+        <activity
+            android:name=".Hangedman.GameManager"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -21,18 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Auth.Login">
-
-        </activity>
-        <activity android:name=".Auth.SignUp">
-
-        </activity>
-        <activity android:name=".Ui.HomePage">
-
-        </activity>
-        <activity android:name=".Ui.Games">
-
-        </activity>
+        <activity android:name=".Auth.Login" />
+        <activity android:name=".Auth.SignUp" />
+        <activity android:name=".Ui.HomePage" />
+        <activity android:name=".Ui.Games" />
+        <activity android:name=".Hangedman.GameActivity1" />
     </application>
 
 </manifest>

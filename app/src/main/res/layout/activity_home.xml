@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_center">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+
+        android:id="@+id/iv_logo"
+        android:layout_width="189dp"
+        android:layout_height="151dp"
+        android:layout_marginTop="45dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundimageview"
+        app:srcCompat="@drawable/bored_games_logos"
+        tools:ignore="MissingConstraints" />
+
+
+    <Button
+        android:id="@+id/btn_sound"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="133dp"
+        android:layout_marginTop="117dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="148dp"
+        android:drawableBottom="@drawable/ic_baseline_music_note_on"
+        android:text="Sound"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_settings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_play_games" />
+
+    <Button
+        android:id="@+id/btn_settings"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="117dp"
+        android:layout_marginEnd="133dp"
+        android:layout_marginBottom="148dp"
+        android:drawableBottom="@drawable/ic_baseline_settings_24"
+        android:text="Settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_sound"
+        app:layout_constraintTop_toBottomOf="@+id/btn_play_games" />
+
+    <Button
+        android:id="@+id/btn_play_games"
+        android:layout_width="178dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="118dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="315dp"
+        android:gravity="center"
+        android:text="Play Games"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

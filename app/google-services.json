@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "118289610162",
+    "project_id": "bored-games-beba0",
+    "storage_bucket": "bored-games-beba0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118289610162:android:7d5c4b5b1302db579c20ab",
+        "android_client_info": {
+          "package_name": "com.tuwaiq.boredgames"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118289610162-m7eg7qa2km8m74akl08f130aggdp2npp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmKRUMQd2dDXSlp7WeB4RsZl_FD4Z_hss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118289610162-m7eg7qa2km8m74akl08f130aggdp2npp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

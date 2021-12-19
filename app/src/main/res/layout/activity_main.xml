@@ -5,7 +5,8 @@
     android:id="@+id/constraints"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient_center">
 
     <ImageView
         android:id="@+id/ic_logo"

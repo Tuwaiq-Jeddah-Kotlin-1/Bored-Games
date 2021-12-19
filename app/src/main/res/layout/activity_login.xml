@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_center"
+    tools:context=".Auth.Login">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+
+        android:id="@+id/iv_logo"
+        android:layout_width="189dp"
+        android:layout_height="151dp"
+        android:layout_marginTop="45dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundimageview"
+        app:srcCompat="@drawable/bored_games_logos"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/whiteCardColor"
+        android:elevation="5dp"
+        app:cardCornerRadius="@dimen/loginCardRadius"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+
+
+            <EditText
+                android:gravity="center"
+                android:id="@+id/et_email"
+                android:layout_marginTop="25dp"
+                android:layout_width="222dp"
+                android:layout_height="51dp"
+                android:autofillHints="@string/prompt_email"
+                android:hint="@string/enter_email"/>
+
+            <EditText
+                android:gravity="center"
+                android:id="@+id/et_password"
+                android:layout_marginTop="25dp"
+                android:layout_width="222dp"
+                android:layout_height="51dp"
+                android:autofillHints="@string/prompt_password"
+                android:hint="@string/enter_password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                app:passwordToggleEnabled="true"/>
+
+
+            <ProgressBar
+                android:id="@+id/loading"
+                android:layout_width="0dp"
+                android:layout_height="11dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                tools:ignore="MissingConstraints" />
+
+            <CheckBox
+                android:id="@+id/remember_me"
+                android:layout_marginTop="55dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remember_me"/>
+            <TextView
+                android:id="@+id/forgot_password"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/forgot_my_password"
+                tools:ignore="MissingConstraints" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <Button
+
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Login"
+        android:backgroundTint="#3BBDE4"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+    <TextView
+        android:id="@+id/tv_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="46dp"
+        android:text="New? Click here"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
