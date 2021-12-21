@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import com.tuwaiq.boredgames.Auth.SignUp
 import com.tuwaiq.boredgames.R
@@ -16,18 +17,24 @@ class HomePage : AppCompatActivity() {
 
     lateinit var btnSound: Button
     lateinit var btnPlay: Button
+    lateinit var btnSettings : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        val bottomSheetFragment = BottomSheetFragment()
         btnSound = findViewById(R.id.btn_sound)
         btnPlay = findViewById(R.id.btn_play_games)
+        btnSettings = findViewById(R.id.btn_settings)
 
         btnPlay.setOnClickListener {
             startActivity(Intent(this, Games::class.java))
         }
         btnSound.setOnClickListener {
             playSound()
+        }
+        btnSettings.setOnClickListener {
+            bottomSheetFragment.show(supportFragmentManager, "BottomSheetDialog")
         }
     }
     var mediaPlayer = MediaPlayer()

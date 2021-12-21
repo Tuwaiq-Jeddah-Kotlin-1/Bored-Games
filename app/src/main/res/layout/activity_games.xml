@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="49dp"
         android:layout_marginBottom="119dp"
+        android:fontFamily="casual"
         android:gravity="center"
         android:text="Choose a Game:"
         android:textSize="50dp"
@@ -44,13 +45,15 @@
                 android:layout_height="match_parent"
                 android:padding="10dp"
                 android:src="@drawable/hangman_icon"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Hangman"
+                android:fontFamily="casual"
                 android:padding="15dp"
-                android:textStyle="bold"
-                android:textSize="30dp" />
+                android:text="Hangman"
+                android:textSize="29dp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -79,13 +82,15 @@
                 android:layout_height="match_parent"
                 android:padding="10dp"
                 android:src="@drawable/puzzle_piece"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Jigsaw Puzzle"
+                android:fontFamily="casual"
                 android:padding="15dp"
-                android:textStyle="bold"
-                android:textSize="30dp" />
+                android:text="Jigsaw Puzzle"
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -102,6 +107,28 @@
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@drawable/numbers_puzzle"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="casual"
+            android:padding="15dp"
+            android:text="Sliding Puzzle"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,75 +21,98 @@
         app:srcCompat="@drawable/bored_games_logos" />
 
 
-    <EditText
-        android:id="@+id/et_username_reg"
-        android:layout_width="222dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="50dp"
-        android:autofillHints="@string/prompt_email"
-        android:hint="Enter Username"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_logo"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/et_email_reg"
-        android:layout_width="222dp"
-        android:layout_height="51dp"
-        android:autofillHints="@string/prompt_email"
-        android:hint="Enter Email"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_username_reg"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/et_password_reg"
-        android:layout_width="222dp"
-        android:layout_height="51dp"
-        android:autofillHints="@string/prompt_password"
-        android:hint="Enter Password"
-        android:imeOptions="actionDone"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_email_reg"
-        tools:ignore="MissingConstraints"/>
-
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:backgroundTint="@color/colorGradientRoyalBlue"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_gravity="center"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="64dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/et_password_reg"
-        app:layout_constraintStart_toStartOf="@+id/et_password_reg"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/whiteCardColor"
+        android:elevation="5dp"
+        app:cardCornerRadius="@dimen/loginCardRadius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo">
 
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+
+            <EditText
+                android:id="@+id/et_username_reg"
+                android:layout_width="222dp"
+                android:gravity="center"
+                android:layout_height="51dp"
+                android:layout_marginTop="50dp"
+                android:autofillHints="@string/prompt_email"
+                android:hint="Enter Username"
+                android:textColor="@color/white"
+                android:drawableStart="@drawable/ic_baseline_account_circle_24"
+                android:textColorHint="@color/white"
+                android:selectAllOnFocus="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_logo"
+                tools:ignore="MissingConstraints" />
+
+            <EditText
+                android:id="@+id/et_email_reg"
+                android:layout_width="222dp"
+                android:layout_height="51dp"
+                android:autofillHints="@string/prompt_email"
+                android:hint="Enter Email"
+                android:gravity="center"
+                android:drawableStart="@drawable/ic_baseline_email_24"
+                android:textColorHint="@color/white"
+                android:inputType="textEmailAddress"
+                android:selectAllOnFocus="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_username_reg"
+                tools:ignore="MissingConstraints" />
+
+            <EditText
+                android:id="@+id/et_password_reg"
+                android:layout_width="222dp"
+                android:layout_height="51dp"
+                android:autofillHints="@string/prompt_password"
+                android:hint="Enter Password"
+                android:gravity="center"
+                android:drawableStart="@drawable/ic_baseline_lock_24"
+                android:textColorHint="@color/white"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_email_reg"
+                tools:ignore="MissingConstraints"/>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <Button
         android:id="@+id/btn_signup"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginBottom="63dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/colorGradientRoyalBlue"
         android:text="SIGN UP"
-        android:backgroundTint="#3BBDE4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password_reg" />
-
-
-
-
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,7 +33,7 @@
         android:layout_marginTop="56dp"
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/whiteCardColor"
+        android:backgroundTint="@color/colorGradientRoyalBlue"
         android:elevation="5dp"
         app:cardCornerRadius="@dimen/loginCardRadius"
         app:layout_constraintBottom_toTopOf="@+id/btn_login"
@@ -56,7 +56,9 @@
                 android:layout_marginTop="25dp"
                 android:layout_width="222dp"
                 android:layout_height="51dp"
+                android:textColorHint="@color/white"
                 android:autofillHints="@string/prompt_email"
+                android:drawableStart="@drawable/ic_baseline_email_24"
                 android:hint="@string/enter_email"/>
 
             <EditText
@@ -67,6 +69,8 @@
                 android:layout_height="51dp"
                 android:autofillHints="@string/prompt_password"
                 android:hint="@string/enter_password"
+                android:textColorHint="@color/white"
+                android:drawableStart="@drawable/ic_baseline_lock_24"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 app:passwordToggleEnabled="true"/>
@@ -85,6 +89,7 @@
                 android:layout_marginTop="55dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:text="@string/remember_me"/>
             <TextView
                 android:id="@+id/forgot_password"
@@ -93,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:text="@string/forgot_my_password"
+                android:textColor="@color/white"
                 tools:ignore="MissingConstraints" />
 
         </LinearLayout>
@@ -106,7 +112,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:text="Login"
-        android:backgroundTint="#3BBDE4"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/colorGradientRoyalBlue"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

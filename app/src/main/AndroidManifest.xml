@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -13,12 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BoredGames">
-        <activity
-            android:name=".Hangedman.GameState"
-            android:exported="true" />
-        <activity
-            android:name=".Hangedman.GameManager"
-            android:exported="true" />
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -33,6 +31,8 @@
         <activity android:name=".Ui.HomePage" />
         <activity android:name=".Ui.Games" />
         <activity android:name=".Hangedman.GameActivity1" />
+        <activity android:name=".JigsawPuzzle.GameActivity2"/>
+        <activity android:name=".JigsawPuzzle.PuzzleActivity"/>
     </application>
 
 </manifest>

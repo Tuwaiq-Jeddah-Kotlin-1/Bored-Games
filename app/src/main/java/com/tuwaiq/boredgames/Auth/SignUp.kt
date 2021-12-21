@@ -32,6 +32,8 @@ class SignUp : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
+        supportActionBar?.hide()
+
         btnSignUp = findViewById(R.id.btn_signup)
         usernameReg = findViewById(R.id.et_username_reg)
         etEmailReg = findViewById(R.id.et_email_reg)
@@ -81,7 +83,7 @@ class SignUp : AppCompatActivity() {
 
                                 val usernameData = usernameReg.text.toString()
                                 val emailData = etEmailReg.text.toString()
-                                val member = Users(emailData, usernameData)
+                                val member = Users(usernameData, emailData)
                                 saveMember(member)
 
                                 //++++++++++++++++++++++

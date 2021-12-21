@@ -215,6 +215,7 @@ object GameConstants {
         "Uganda",
         "Ukraine",
         "United/Arab/Emirates",
+        "Um/Doha",
         "US/Minor/Outlying/Islands",
         "Uruguay",
         "Uzbekistan",
