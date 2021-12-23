@@ -1,12 +1,15 @@
 package com.tuwaiq.boredgames.Ui
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import com.tuwaiq.boredgames.Auth.SignUp
@@ -15,9 +18,12 @@ import java.io.IOException
 
 class HomePage : AppCompatActivity() {
 
-    lateinit var btnSound: Button
-    lateinit var btnPlay: Button
+    private lateinit var btnSound: Button
+    private lateinit var btnPlay: Button
     lateinit var btnSettings : Button
+
+
+    //private val lang = resources.getStringArray(R.array.Languages)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -27,6 +33,7 @@ class HomePage : AppCompatActivity() {
         btnPlay = findViewById(R.id.btn_play_games)
         btnSettings = findViewById(R.id.btn_settings)
 
+
         btnPlay.setOnClickListener {
             startActivity(Intent(this, Games::class.java))
         }
@@ -35,9 +42,13 @@ class HomePage : AppCompatActivity() {
         }
         btnSettings.setOnClickListener {
             bottomSheetFragment.show(supportFragmentManager, "BottomSheetDialog")
+            //startActivity(Intent(this, SettingsFragment::class.java))
+
         }
     }
     var mediaPlayer = MediaPlayer()
+
+
 
     fun playSound(){
 
@@ -64,4 +75,15 @@ class HomePage : AppCompatActivity() {
 
         }
     }
+
+
+
+
+
 }
+
+
+
+
+
+

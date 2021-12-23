@@ -16,7 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BoredGames">
 
-
         <activity
             android:name=".MainActivity"
             android:exported="true">

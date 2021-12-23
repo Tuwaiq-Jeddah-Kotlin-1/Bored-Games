@@ -4,29 +4,122 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Ui.BottomSheetFragment"
-    android:background="@color/black">
+    android:background="@drawable/gradient_royal"
+    android:id="@+id/bottom_sheet">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:orientation="vertical">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:backgroundTint="@color/colorGradientRoyalBlue"
+        android:layout_width="320dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/whiteCardColor"
+        android:elevation="5dp">
 
-        <TextView
-            android:layout_width="match_parent"
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Settings"
-            android:textColor="@color/white" />
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="LogOut"
-            android:gravity="center_vertical"
-            android:textColor="@color/white"/>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/et_password_reg"
+                android:layout_width="222dp"
+                android:layout_height="51dp"
+                android:autofillHints="@string/prompt_password"
+                android:text="ALBASIL"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="4dp"
+                android:drawableStart="@drawable/ic_baseline_person_24"
+                android:textColor="@color/white"
+                android:selectAllOnFocus="true"/>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:backgroundTint="@color/white"
+                android:background="@color/white" />
+
+            <EditText
+                android:id="@+id/et_username_reg"
+                android:layout_width="222dp"
+                android:gravity="center"
+                android:layout_height="51dp"
+                android:autofillHints="@string/prompt_email"
+                android:hint="Change Username"
+                android:textColor="@color/white"
+                android:drawableStart="@drawable/ic_baseline_edit_24"
+                android:textColorHint="@color/white"
+                android:selectAllOnFocus="true"/>
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:backgroundTint="@color/white"
+                android:background="@color/white" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/arb_lang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Arabic"
+                    android:textColor="@color/white"/>
+                <RadioButton
+                    android:id="@+id/eng_lang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="English"
+                    android:layout_marginLeft="70dp"
+                    android:textColor="@color/white"/>
+            </RadioGroup>
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:backgroundTint="@color/white"
+                android:background="@color/white" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="Confirm"
+                android:textColor="@color/white"
+                android:backgroundTint="#0BA611"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="LOGOUT"
+                android:drawableEnd="@drawable/ic_baseline_login_24"
+                android:paddingEnd="50dp"
+                android:paddingStart="60dp"
+                android:textColor="@color/white"
+                android:backgroundTint="#E12E2E"/>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 
 
