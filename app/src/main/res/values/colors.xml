@@ -17,7 +17,7 @@
     <color name="primaryTextColor">#00a5ff</color>
     <color name="loginBkColor">#f0f0f0</color>
 
-<!--colros for card-->
+<!--colors for card-->
     <color name="whiteCardColor">#fff</color>
 
     <color name="colorTransparent">#FFFFFF</color>
@@ -25,4 +25,10 @@
     <color name="colorGradientCenter">#F67831</color>
     <color name="colorGradientEnd">#FF1493</color>
     <color name="colorGradientRoyalBlue">#041780</color>
+
+    <!--colors for Tiles-->
+    <color name="tile_color">#FFFFFFFF</color>
+    <color name="tile_color2">#FFFFFFFF</color>
+    <color name="tile_color1">#FF000000</color>
+    <color name="board_color">#660877</color>
 </resources>

@@ -62,7 +62,7 @@ class Board(size: Int) {
         return (p.y -1) * size+ p.x
     }
     /** Is this puzzle solved */
-    private fun solved():{
+     fun solved():{
         var result = true
         for (p: Place in places){
             result = result &&
