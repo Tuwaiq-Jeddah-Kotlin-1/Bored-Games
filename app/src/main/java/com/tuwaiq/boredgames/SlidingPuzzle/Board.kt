@@ -1,5 +1,8 @@
 package com.tuwaiq.boredgames.SlidingPuzzle
 
+import java.util.*
+import kotlin.collections.ArrayList
+
 class Board(size: Int) {
     private val size: Int
     private var numOfMoves: Int
@@ -17,8 +20,8 @@ class Board(size: Int) {
     }
     /** swap two tiles randomly */
     private fun swapTiles(){
-        val p1: Place? = at(rendom.nextInt(size) + 1, rendom.nextInt(size) + 1)
-        val p2: Place? = at(rendom.nextInt(size) + 1, rendom.nextInt(size) + 1)
+        val p1: Place? = at(rand.nextInt(size) + 1, rand.nextInt(size) + 1)
+        val p2: Place? = at(rand.nextInt(size) + 1, rand.nextInt(size) + 1)
 
         if(p1 != p2){
             val t: Tile? = p1?.tile
@@ -59,7 +62,7 @@ class Board(size: Int) {
         return (p.y -1) * size+ p.x
     }
     /** Is this puzzle solved */
-    fun solved():{
+    private fun solved():{
         var result = true
         for (p: Place in places){
             result = result &&
@@ -96,7 +99,7 @@ class Board(size: Int) {
     private fun isBlank(x: Int, y: Int): Boolean{
         return ((0 < x && x <= size)
                 && (0 < y && y <= size)
-                && (at(x,y).tile == null)
+                && (at(x,y)!!.tile == null)
                 )
     }
     fun blank(): Place?{
@@ -131,4 +134,33 @@ class Board(size: Int) {
     fun removeBoardChangeListener(listener: BoardChangeListener){
         listeners.remove(listener)
     }
+    fun notifyTileSliding(from: Place, to: Place, numOfMoves: Int){
+        for (listener: BoardChangeListener in listeners){
+            listener.tileSlid(from, to, numOfMoves)
+        }
+    }
+    private fun notifyPuzzleSolved(numOfMoves: Int){
+        for (listener: BoardChangeListener in listeners){
+            listener.solved(numOfMoves)
+        }
+    }
+    companion object{
+        private val rand: Random = Random
+    }
+    init {
+        listeners = ArrayList()
+        this.size = size
+        places = ArrayList(size * size)
+        for (x in 1..size){
+            for (y in 1.. size){
+                places.add(if (x == size && y == size){
+                    Place(x,y,this)
+                }else{
+                    Place(x,y,(y-1) * size + x, this)
+                })
+            }
+        }
+        numOfMoves = 0
+    }
+
 }

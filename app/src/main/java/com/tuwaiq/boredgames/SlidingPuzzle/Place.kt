@@ -13,7 +13,7 @@ class Place(val x: Int, var y: Int, board: Board) {
         return hasTile() && board.slidable(this)
     }
     fun slide(){
-        board.slide(this)
+        board.slide(tile!!)
     }
     init {
         y = y
