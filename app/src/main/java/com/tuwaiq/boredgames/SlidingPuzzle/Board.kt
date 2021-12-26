@@ -100,6 +100,35 @@ class Board(size: Int) {
                 )
     }
     fun blank(): Place?{
+        for (p: Place in places){
+            if (p.tile == null){
+                return p
+            }
+        }
+        // assert false : "Should never reach here"
+        return null
+    }
+    fun places(): Iterable<Place> = places
 
+    fun at(x: Int, y: Int): Place?{
+        for (p: Place in places){
+            if (p.x === x && p.y === y){
+                return p
+            }
+        }
+        //assert false: "precondition violation"
+        return null
+    }
+    fun size(): Int = size
+
+    fun numbOfMoves(): Int = numOfMoves
+
+    fun addBoardChangeListener(listener: BoardChangeListener){
+        if (!listeners.contains(listener)){
+            listeners.add(listener)
+        }
+    }
+    fun removeBoardChangeListener(listener: BoardChangeListener){
+        listeners.remove(listener)
     }
 }
