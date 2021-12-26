@@ -15,7 +15,7 @@ import com.tuwaiq.boredgames.R
 
 class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener {
 
-    private lateinit var btnSpinner : Spinner
+
     lateinit var radioArb : RadioButton
     lateinit var radioEng : RadioButton
     private var spanner : TextView? = null
@@ -33,15 +33,7 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener, Adapter
         super.onViewCreated(view, savedInstanceState)
         radioArb = view.findViewById(R.id.arb_lang)
         radioEng = view.findViewById(R.id.eng_lang)
-        /*btnSpinner = view.findViewById(R.id.spinner1)
 
-        bottomSheetProperties()
-        val adapter : ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(view.context,
-            R.array.Languages,
-            android.R.layout.simple_list_item_1)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        btnSpinner.adapter = adapter
-        btnSpinner.onItemSelectedListener = this*/
     }
     @SuppressLint("InflateParams")
     private fun bottomSheetProperties() {
