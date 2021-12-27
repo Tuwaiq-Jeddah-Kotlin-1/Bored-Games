@@ -2,6 +2,7 @@ package com.tuwaiq.boredgames.SlidingPuzzle
 
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.random.Random
 
 class Board(size: Int) {
     private val size: Int
@@ -62,7 +63,7 @@ class Board(size: Int) {
         return (p.y -1) * size+ p.x
     }
     /** Is this puzzle solved */
-     fun solved():{
+     fun solved(): Boolean{
         var result = true
         for (p: Place in places){
             result = result &&
