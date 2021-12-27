@@ -67,5 +67,28 @@ class BoardView(context: Context?, private val board: Board): View(context) {
         val x = width/2
         val fm = foreground.fontMetrics
         val y = height/2 - (fm.ascent + fm.descent)/2
+        val it = board.places().iterator()
+        for (i in 0 until board.size()){
+            for (j in 0 until board.size()){
+                if (it.hasNext()){
+                    val p = it.next()
+                    if (p.hasTile()){
+                        val number = Integer.toString(p.tile!!.number())
+                        canvas.drawText(number,
+                            i * width + x,
+                            j * height + y, foreground)
+                    }else{
+                        canvas.drawRect(i * width,
+                            j * height,
+                            i * width + width,
+                            j * height + height, foreground)
+                    }
+                }
+            }
+        }
+    }
+    init {
+        isFocusable = true
+        isFocusableInTouchMode = true
     }
 }
