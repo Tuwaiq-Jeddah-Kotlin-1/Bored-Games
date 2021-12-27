@@ -35,9 +35,9 @@ class Board(size: Int) {
     private fun solvable(): Boolean{
         var inversion = 0
         for (p: Place in places){
-            var pt: Tile? = p.tile
+            val pt: Tile? = p.tile
             for (q: Place in places){
-                var qt: Tile? = q.tile
+                val qt: Tile? = q.tile
                 if (p != q && pt != null && qt != null
                     && indexOf(p) < indexOf(q)
                     && pt.number() > qt.number()
@@ -125,7 +125,7 @@ class Board(size: Int) {
     }
     fun size(): Int = size
 
-    fun numbOfMoves(): Int = numOfMoves
+    fun nomOfMoves(): Int = numOfMoves
 
     fun addBoardChangeListener(listener: BoardChangeListener){
         if (!listeners.contains(listener)){
@@ -151,7 +151,7 @@ class Board(size: Int) {
     init {
         listeners = ArrayList()
         this.size = size
-        places = ArrayList(size * size)
+        places = ArrayList<Place>(size * size)
         for (x in 1..size){
             for (y in 1.. size){
                 places.add(if (x == size && y == size){

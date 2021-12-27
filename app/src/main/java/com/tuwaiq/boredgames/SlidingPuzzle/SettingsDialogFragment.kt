@@ -10,7 +10,7 @@ class SettingsDialogFragment(var size: Int): DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         var builder = AlertDialog.Builder(activity)
-            .setTitle("Define the size of the puzzle")
+            builder.setTitle("Define the size of the puzzle")
             .setSingleChoiceItems(R.array.size_options, size-2){
                 dialog, which -> size = which + 2
             }

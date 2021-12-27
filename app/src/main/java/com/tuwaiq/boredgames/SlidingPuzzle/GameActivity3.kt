@@ -80,7 +80,7 @@ class GameActivity3: AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+         when(item.itemId){
             R.id.action_newgame ->{
                 AlertDialog.Builder(this)
                     .setTitle("New Game")
@@ -94,12 +94,12 @@ class GameActivity3: AppCompatActivity() {
                     }.setNegativeButton("No"){
                         dialog, _ -> dialog.dismiss()
                     }.create().show()
-                true
+
             }
             R.id.action_settings ->{
                 val settings = SettingsDialogFragment(boardSize)
                 settings.show(supportFragmentManager, "fragment_settings")
-                true
+
             }
             R.id.action_help ->{
                 AlertDialog.Builder(this)
@@ -110,11 +110,12 @@ class GameActivity3: AppCompatActivity() {
                             "adjacent to the blank into the location of the blank space.")
                     .setPositiveButton("I Understand"){
                         dialog, _ -> dialog.dismiss()
-                    }.create().show()
-                true
+                    }.show()
+
             }
 
-            else -> super.onOptionsItemSelected(item)
+
         }
+        return super.onOptionsItemSelected(item)
     }
 }

@@ -31,20 +31,21 @@ class BoardView(context: Context?, private val board: Board): View(context) {
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         Log.e(TAG, "onTouchEvent: TRUE!!!", )
-        if (event!!.action == MotionEvent.ACTION_DOWN)
+        if (event!!.action != MotionEvent.ACTION_DOWN)
             return super.onTouchEvent(event)
         val p = locatePlace(event.x, event.y)
         if (p != null && p.slidable() && !board.solved()){
             p.slide()
+            //postInvalidate()
             invalidate()
         }
         return true
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         val background = Paint()
         background.color = resources.getColor(R.color.board_color)
-        canvas!!.drawRect(0f, 0f,
+        canvas.drawRect(0f, 0f,
             getWidth().toFloat(),
             getHeight().toFloat(), background)
 
@@ -68,8 +69,8 @@ class BoardView(context: Context?, private val board: Board): View(context) {
         foreground.color = resources.getColor(R.color.tile_color)
         foreground.style = Paint.Style.FILL
         foreground.textSize = height * 0.75f
-        foreground.textAlign = Paint.Align.CENTER
         foreground.textScaleX = width/height
+        foreground.textAlign = Paint.Align.CENTER
         val x = width/2
         val fm = foreground.fontMetrics
         val y = height/2 - (fm.ascent + fm.descent)/2
@@ -83,11 +84,13 @@ class BoardView(context: Context?, private val board: Board): View(context) {
                         canvas.drawText(number,
                             i * width + x,
                             j * height + y, foreground)
+                        //invalidate()
                     }else{
                         canvas.drawRect(i * width,
                             j * height,
                             i * width + width,
                             j * height + height, foreground)
+                        //invalidate()
                     }
                 }
             }
