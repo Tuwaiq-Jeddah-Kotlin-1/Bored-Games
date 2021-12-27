@@ -1,8 +1,11 @@
 package com.tuwaiq.boredgames.SlidingPuzzle
 
+import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import com.tuwaiq.boredgames.R
@@ -25,8 +28,11 @@ class BoardView(context: Context?, private val board: Board): View(context) {
         return board.at(ix + 1, iy + 1)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-        if (event!!.action == MotionEvent.ACTION_DOWN)return super.onTouchEvent(event)
+        Log.e(TAG, "onTouchEvent: TRUE!!!", )
+        if (event!!.action == MotionEvent.ACTION_DOWN)
+            return super.onTouchEvent(event)
         val p = locatePlace(event.x, event.y)
         if (p != null && p.slidable() && !board.solved()){
             p.slide()

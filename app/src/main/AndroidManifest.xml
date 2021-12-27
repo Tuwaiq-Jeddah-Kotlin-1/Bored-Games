@@ -32,6 +32,7 @@
         <activity android:name=".Hangedman.GameActivity1" />
         <activity android:name=".JigsawPuzzle.GameActivity2"/>
         <activity android:name=".JigsawPuzzle.PuzzleActivity"/>
+        <activity android:name=".SlidingPuzzle.GameActivity3"/>
     </application>
 
 </manifest>
