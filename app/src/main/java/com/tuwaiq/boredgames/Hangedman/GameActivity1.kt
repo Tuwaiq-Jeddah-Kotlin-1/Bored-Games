@@ -89,7 +89,7 @@ class GameActivity1 : AppCompatActivity() {
         updateUI(gameState)
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.game_menu, menu)
+        menuInflater.inflate(R.menu.help_menu, menu)
 
         return true
     }
@@ -98,10 +98,9 @@ class GameActivity1 : AppCompatActivity() {
             R.id.action_help ->{
                 AlertDialog.Builder(this)
                     .setTitle("Rules!!")
-                    .setMessage("The goal of the puzzle is to place the tiles" +
-                            " in order by making sliding moves that use the empty space." +
-                            "The only valid moves are to move a tile which is immediately" +
-                            "adjacent to the blank into the location of the blank space.")
+                    .setMessage("The goal of this word puzzle is to guess the correct word by choosing " +
+                            "letters. You have 7 tries until failure and you need to guess correctly. \n" +
+                            "PRO TIP: Start with vowels!!")
                     .setPositiveButton("I Understand"){
                             dialog, _ -> dialog.dismiss()
                     }.show()

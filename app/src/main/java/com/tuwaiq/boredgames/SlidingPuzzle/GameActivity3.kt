@@ -106,7 +106,7 @@ class GameActivity3: AppCompatActivity() {
                     .setTitle("Rules!!")
                     .setMessage("The goal of the puzzle is to place the tiles" +
                             " in order by making sliding moves that use the empty space." +
-                            "The only valid moves are to move a tile which is immediately" +
+                            "The only valid moves are to move a tile which is immediately " +
                             "adjacent to the blank into the location of the blank space.")
                     .setPositiveButton("I Understand"){
                         dialog, _ -> dialog.dismiss()

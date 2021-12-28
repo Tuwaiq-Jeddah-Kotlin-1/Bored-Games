@@ -14,6 +14,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import com.tuwaiq.boredgames.Auth.SignUp
 import com.tuwaiq.boredgames.R
+import com.tuwaiq.boredgames.SlidingPuzzle.SettingsDialogFragment
 import java.io.IOException
 
 class HomePage : AppCompatActivity() {
@@ -28,7 +29,7 @@ class HomePage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val bottomSheetFragment = BottomSheetFragment()
+
         btnSound = findViewById(R.id.btn_sound)
         btnPlay = findViewById(R.id.btn_play_games)
         btnSettings = findViewById(R.id.btn_settings)
@@ -41,8 +42,8 @@ class HomePage : AppCompatActivity() {
             playSound()
         }
         btnSettings.setOnClickListener {
+            val bottomSheetFragment = BottomSheetFragment()
             bottomSheetFragment.show(supportFragmentManager, "BottomSheetDialog")
-            //startActivity(Intent(this, SettingsFragment::class.java))
 
         }
     }

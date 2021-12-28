@@ -147,7 +147,7 @@ class GameActivity2 : AppCompatActivity() {
         const val REQUEST_IMAGE_GALLERY = 4
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.game_menu, menu)
+        menuInflater.inflate(R.menu.help_menu, menu)
 
         return true
     }
@@ -156,10 +156,9 @@ class GameActivity2 : AppCompatActivity() {
             R.id.action_help ->{
                 AlertDialog.Builder(this)
                     .setTitle("Rules!!")
-                    .setMessage("The goal of the puzzle is to place the tiles" +
-                            " in order by making sliding moves that use the empty space." +
-                            "The only valid moves are to move a tile which is immediately" +
-                            "adjacent to the blank into the location of the blank space.")
+                    .setMessage("The goal of the puzzle is to move and insert the pieces into their respectful place " +
+                            "based on the image in the background. You can change the theme of the puzzle from " +
+                            "your own image gallery.")
                     .setPositiveButton("I Understand"){
                             dialog, _ -> dialog.dismiss()
                     }.show()
