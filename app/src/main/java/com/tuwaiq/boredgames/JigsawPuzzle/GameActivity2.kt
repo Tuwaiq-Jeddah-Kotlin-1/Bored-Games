@@ -7,10 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
@@ -142,5 +145,29 @@ class GameActivity2 : AppCompatActivity() {
         private const val REQUEST_IMAGE_CAPTURE = 1
         const val REQUEST_PERMISSION_READ_EXTERNAL_STORAGE = 3
         const val REQUEST_IMAGE_GALLERY = 4
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.game_menu, menu)
+
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.action_help ->{
+                AlertDialog.Builder(this)
+                    .setTitle("Rules!!")
+                    .setMessage("The goal of the puzzle is to place the tiles" +
+                            " in order by making sliding moves that use the empty space." +
+                            "The only valid moves are to move a tile which is immediately" +
+                            "adjacent to the blank into the location of the blank space.")
+                    .setPositiveButton("I Understand"){
+                            dialog, _ -> dialog.dismiss()
+                    }.show()
+
+            }
+
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

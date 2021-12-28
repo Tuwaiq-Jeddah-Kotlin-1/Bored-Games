@@ -2,14 +2,18 @@ package com.tuwaiq.boredgames.Hangedman
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import com.tuwaiq.boredgames.R
+import com.tuwaiq.boredgames.SlidingPuzzle.SettingsDialogFragment
 
 class GameActivity1 : AppCompatActivity() {
 
@@ -83,5 +87,29 @@ class GameActivity1 : AppCompatActivity() {
             letterView.visibility = View.VISIBLE
         }
         updateUI(gameState)
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.game_menu, menu)
+
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.action_help ->{
+                AlertDialog.Builder(this)
+                    .setTitle("Rules!!")
+                    .setMessage("The goal of the puzzle is to place the tiles" +
+                            " in order by making sliding moves that use the empty space." +
+                            "The only valid moves are to move a tile which is immediately" +
+                            "adjacent to the blank into the location of the blank space.")
+                    .setPositiveButton("I Understand"){
+                            dialog, _ -> dialog.dismiss()
+                    }.show()
+
+            }
+
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
