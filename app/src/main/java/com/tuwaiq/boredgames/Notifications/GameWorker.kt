@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 
-class GameWorker(private val context: Context, private val params: WorkerParameters): Worker(context, params) {
+class GameWorker(private val context: Context, val params: WorkerParameters): Worker(context, params) {
     override fun doWork(): Result{
         NotificationPointer(context).createNotification(
             inputData.getString("title").toString(),

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import com.tuwaiq.boredgames.Auth.Login
+import com.tuwaiq.boredgames.Notifications.GamesNotificationRepo
 
 class MainActivity : AppCompatActivity() {
     private lateinit var logo: ImageView
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        GamesNotificationRepo().myNotification(this)
         logo = findViewById(R.id.ic_logo)
         // Setting up two animations with their respective time
         logo.startAnimation(AnimationUtils.loadAnimation(this,R.anim.splash_in))
