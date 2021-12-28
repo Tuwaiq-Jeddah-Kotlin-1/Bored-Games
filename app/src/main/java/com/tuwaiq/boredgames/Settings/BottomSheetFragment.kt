@@ -1,4 +1,4 @@
-package com.tuwaiq.boredgames.Ui
+package com.tuwaiq.boredgames.Settings
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,18 +8,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.tuwaiq.boredgames.R
 
 
-class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener {
+class BottomSheetFragment : BottomSheetDialogFragment(), AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener {
 
 
+    lateinit var etUsernameChange : EditText
     lateinit var radioArb : RadioButton
     lateinit var radioEng : RadioButton
+    lateinit var btnConfirm : Button
+    lateinit var btnLogout : Button
     private var spanner : TextView? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,19 +29,25 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener, Adapter
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_bottom_sheet, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        etUsernameChange = view.findViewById(R.id.username_settings_et)
         radioArb = view.findViewById(R.id.arb_lang)
         radioEng = view.findViewById(R.id.eng_lang)
+        btnConfirm = view.findViewById(R.id.btn_confirm)
+        btnLogout = view.findViewById(R.id.btn_logout)
+
+
 
     }
     @SuppressLint("InflateParams")
     private fun bottomSheetProperties() {
 
         val view: View = layoutInflater.inflate(R.layout.fragment_bottom_sheet, null)
-        val builder = BottomSheetDialog(view as Context)
+        val builder = BottomSheetDialog(view.context)
         builder.setTitle("Settings")
         builder.show()
 

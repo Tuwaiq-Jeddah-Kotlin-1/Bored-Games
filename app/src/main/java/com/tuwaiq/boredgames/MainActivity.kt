@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         GamesNotificationRepo().myNotification(this)
+
         logo = findViewById(R.id.ic_logo)
         // Setting up two animations with their respective time
         logo.startAnimation(AnimationUtils.loadAnimation(this,R.anim.splash_in))

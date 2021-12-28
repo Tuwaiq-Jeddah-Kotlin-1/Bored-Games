@@ -1,20 +1,14 @@
 package com.tuwaiq.boredgames.Ui
 
-import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
-import com.tuwaiq.boredgames.Auth.SignUp
 import com.tuwaiq.boredgames.R
-import com.tuwaiq.boredgames.SlidingPuzzle.SettingsDialogFragment
+import com.tuwaiq.boredgames.Settings.BottomSheetFragment
 import java.io.IOException
 
 class HomePage : AppCompatActivity() {

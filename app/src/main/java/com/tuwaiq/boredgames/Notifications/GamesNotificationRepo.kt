@@ -8,7 +8,7 @@ import com.tuwaiq.boredgames.MainActivity
 import java.util.concurrent.TimeUnit
 
 class GamesNotificationRepo() {
-    private val list = listOf("a", "b", "c").random()
+    private val list = listOf("Feeling Bored? Fire up the app and play!!", "We missed you").random()
 
     fun myNotification(mainActivity: MainActivity){
         val myWorkRequest = PeriodicWorkRequest.Builder(GameWorker::class.java, 15, TimeUnit.MINUTES)
