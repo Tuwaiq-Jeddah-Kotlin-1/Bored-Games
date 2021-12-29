@@ -43,39 +43,73 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="220dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_gravity="center">
 
-
-
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
+                app:passwordToggleTint="@color/white"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@color/colorGradientRoyalBlue">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:gravity="center_horizontal"
                 android:id="@+id/et_email"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="20dp"
                 android:layout_width="222dp"
-                android:layout_height="51dp"
+                android:layout_height="match_parent"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:autofillHints="@string/prompt_email"
                 android:drawableStart="@drawable/ic_baseline_email_24"
                 android:hint="@string/enter_email"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:backgroundTint="@color/white"
+                android:background="@color/white" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:passwordToggleEnabled="true"
                 android:gravity="center"
-                android:id="@+id/et_password"
-                android:layout_marginTop="25dp"
-                android:layout_width="222dp"
-                android:layout_height="51dp"
-                android:autofillHints="@string/prompt_password"
-                android:hint="@string/enter_password"
-                android:textColor="@color/white"
+                app:passwordToggleTint="@color/white"
                 android:textColorHint="@color/white"
-                android:drawableStart="@drawable/ic_baseline_lock_24"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
-                app:passwordToggleEnabled="true"/>
+                app:boxBackgroundColor="@color/colorGradientRoyalBlue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="222dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="10dp"
+                    android:drawableStart="@drawable/ic_baseline_lock_24"
+                    android:hint="Enter Password"
+                    android:autofillHints="Enter Password"
+                    android:textColorHint="@color/white"
+                    android:id="@+id/et_password"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:backgroundTint="@color/white"
+                android:background="@color/white" />
+
 
 
             <ProgressBar
@@ -88,7 +122,7 @@
 
             <CheckBox
                 android:id="@+id/remember_me"
-                android:layout_marginTop="55dp"
+                android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
@@ -102,6 +136,8 @@
                 android:text="@string/forgot_my_password"
                 android:textColor="@color/white"
                 tools:ignore="MissingConstraints" />
+
+
 
         </LinearLayout>
 
@@ -129,6 +165,7 @@
         android:layout_marginTop="56dp"
         android:layout_marginEnd="156dp"
         android:layout_marginBottom="46dp"
+        android:textStyle="bold"
         android:text="New? Click here"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

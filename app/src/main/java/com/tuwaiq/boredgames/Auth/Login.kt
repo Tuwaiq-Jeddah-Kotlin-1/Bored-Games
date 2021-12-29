@@ -20,15 +20,17 @@ import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.tuwaiq.boredgames.R
+import com.tuwaiq.boredgames.Settings.BottomSheetFragment
 import com.tuwaiq.boredgames.Ui.HomePage
 import kotlinx.android.synthetic.main.activity_login.*
 
 class Login : AppCompatActivity() {
 
-    lateinit var etEmail : EditText
-    lateinit var etPassword : EditText
+    lateinit var etEmail : TextInputEditText
+    lateinit var etPassword : TextInputEditText
     lateinit var btnLogin : Button
     lateinit var tvSignup : TextView
+    lateinit var tvForgotPassword: TextView
     lateinit var checkRemember : CheckBox
     lateinit var sharedPreference : SharedPreferences
     var isChecked = false
@@ -51,6 +53,7 @@ class Login : AppCompatActivity() {
         etPassword = findViewById(R.id.et_password)
         btnLogin = findViewById(R.id.btn_login)
         tvSignup = findViewById(R.id.tv_signup)
+        tvForgotPassword = findViewById(R.id.forgot_password)
         checkRemember = findViewById(R.id.remember_me)
 
 
@@ -61,6 +64,11 @@ class Login : AppCompatActivity() {
         if (isChecked){
 
             startActivity(Intent(this, HomePage::class.java))
+
+        }
+        tvForgotPassword.setOnClickListener {
+            val bottomSheetFragment = ForgotPasswordFragment()
+            bottomSheetFragment.show(supportFragmentManager, "BottomSheetForgot")
 
         }
 

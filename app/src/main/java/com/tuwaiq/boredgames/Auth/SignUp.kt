@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.ktx.firestore
@@ -27,9 +28,9 @@ class SignUp : AppCompatActivity() {
     private val memberRefCollection = Firebase.firestore.collection("Users")
 
     lateinit var btnSignUp: Button
-    lateinit var usernameReg: EditText
-    lateinit var etEmailReg: EditText
-    lateinit var etPasswordReg: EditText
+    lateinit var usernameReg: TextInputEditText
+    lateinit var etEmailReg: TextInputEditText
+    lateinit var etPasswordReg: TextInputEditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
