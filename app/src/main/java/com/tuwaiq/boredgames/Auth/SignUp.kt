@@ -1,9 +1,12 @@
 package com.tuwaiq.boredgames.Auth
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -11,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.tuwaiq.boredgames.Data.Users
@@ -31,6 +35,7 @@ class SignUp : AppCompatActivity() {
     lateinit var usernameReg: TextInputEditText
     lateinit var etEmailReg: TextInputEditText
     lateinit var etPasswordReg: TextInputEditText
+    lateinit var sharedPreferencesTwo : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,7 +88,7 @@ class SignUp : AppCompatActivity() {
                             if (task.isSuccessful) {
                                 //firebase register user
                                 val firebaseUser: FirebaseUser = task.result!!.user!!
-
+                                getUser()
                                 Toast.makeText(
                                     this,
                                     "You were registered successfully",
@@ -115,7 +120,7 @@ class SignUp : AppCompatActivity() {
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         try {
             memberRefCollection.document("$uid").set(member).addOnSuccessListener {
-                Toast.makeText(this@SignUp, "Successfully saved data.", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@SignUp, "Successfully saved data.", Toast.LENGTH_SHORT).show()
 
                 startActivity(Intent(this@SignUp, HomePage::class.java))
 
@@ -126,5 +131,22 @@ class SignUp : AppCompatActivity() {
                 Toast.makeText(this@SignUp, e.message, Toast.LENGTH_LONG).show()
             }
         }
+    }
+    private fun getUser() = CoroutineScope(Dispatchers.IO).launch{
+        val uId =FirebaseAuth.getInstance().currentUser?.uid
+        val db = FirebaseFirestore.getInstance()
+        db.collection("Users").document("$uId")
+            .get().addOnCompleteListener {
+                if (it.result?.exists()!!) {
+                    val name = it.result!!.getString("username")
+                    sharedPreferencesTwo = getSharedPreferences("profile", Context.MODE_PRIVATE)
+                    val editor: SharedPreferences.Editor = sharedPreferencesTwo.edit()
+                    editor.putString("refUsername",name.toString())
+                    editor.apply()
+                }else {
+                    Log.e("error \n", "Nope")
+                }
+            }
+
     }
 }

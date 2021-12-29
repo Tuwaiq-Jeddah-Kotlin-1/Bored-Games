@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -66,7 +67,17 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
         btnLogout.setOnClickListener {
             //FirebaseAuth.getInstance().signOut()
-            getLogOut()
+            AlertDialog.Builder(this.requireContext())
+                .setTitle("Logging Out!!")
+                .setMessage("Are you sure you want to logout?")
+                .setPositiveButton("Yes"){
+                        dialog, _ -> getLogOut()
+                    startActivity(Intent(this.context, Login::class.java))
+                    dialog.dismiss()
+                }.setNegativeButton("No"){
+                        dialog, _ -> dialog.dismiss()
+                }.create().show()
+
         }
 
         btnConfirm.setOnClickListener {
@@ -114,6 +125,10 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         val upDateUserData = Firebase.firestore.collection("Users")
         upDateUserData.document(uId.toString()).update("username", etUsernameChange.text.toString())
         Toast.makeText(context,"edit is successful",Toast.LENGTH_LONG).show()
+
+    }
+
+    private fun localization(){
 
     }
 

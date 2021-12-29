@@ -36,9 +36,6 @@ class ForgotPasswordFragment : BottomSheetDialogFragment() {
             sendingEmail()
         }
 
-
-
-
     }
 
     private fun sendingEmail() {

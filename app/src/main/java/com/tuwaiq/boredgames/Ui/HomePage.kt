@@ -51,9 +51,10 @@ class HomePage : AppCompatActivity() {
 
         }
     }
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "You need to Logout First", Toast.LENGTH_SHORT).show()
+    }
     var mediaPlayer = MediaPlayer()
-
-
 
     fun playSound(){
 
@@ -69,7 +70,7 @@ class HomePage : AppCompatActivity() {
                 e.printStackTrace()
             }
         }else{
-            Toast.makeText(this,"The song Stopped", Toast.LENGTH_SHORT).show()
+            Snackbar.make(btnSound,"The song stopped", Snackbar.LENGTH_SHORT).setAction("Action", null).show()
             try {
                 mediaPlayer.pause()
                 mediaPlayer.stop()
