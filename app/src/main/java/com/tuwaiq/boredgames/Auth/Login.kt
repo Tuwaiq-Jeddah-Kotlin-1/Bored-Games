@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.provider.DocumentsContract
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LayoutAnimationController
@@ -19,10 +20,14 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import com.tuwaiq.boredgames.R
 import com.tuwaiq.boredgames.Settings.BottomSheetFragment
 import com.tuwaiq.boredgames.Ui.HomePage
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class Login : AppCompatActivity() {
 
@@ -33,6 +38,7 @@ class Login : AppCompatActivity() {
     lateinit var tvForgotPassword: TextView
     lateinit var checkRemember : CheckBox
     lateinit var sharedPreference : SharedPreferences
+    lateinit var sharedPreferencesTwo : SharedPreferences
     var isChecked = false
 
 
@@ -117,6 +123,7 @@ class Login : AppCompatActivity() {
                                 editor.putString("PASSWORD", etPassword.text.toString())
                                 editor.putBoolean("CHECKBOX", checked)
                                 editor.apply()
+                                getUser()
 //                                Toast.makeText(this, "${etEmail.text} ${etPassword.text} ${checked}", Toast.LENGTH_LONG).show()
 //                                Toast.makeText(this, "Saved Preference ${etEmail.text} ${etPassword.text}", Toast.LENGTH_LONG).show()
                                 //==========
@@ -149,7 +156,22 @@ class Login : AppCompatActivity() {
         }
 
     }
-    fun onSave(){
+
+    private fun getUser() = CoroutineScope(Dispatchers.IO).launch{
+        val uId =FirebaseAuth.getInstance().currentUser?.uid
+        val db = FirebaseFirestore.getInstance()
+        db.collection("Users").document("$uId")
+            .get().addOnCompleteListener {
+                if (it.result?.exists()!!) {
+                    val name = it.result!!.getString("username")
+                    sharedPreferencesTwo = getSharedPreferences("profile", Context.MODE_PRIVATE)
+                    val editor:SharedPreferences.Editor = sharedPreferencesTwo.edit()
+                    editor.putString("refUsername",name.toString())
+                    editor.apply()
+                }else {
+                    Log.e("error \n", "Nope")
+                }
+            }
 
     }
 
