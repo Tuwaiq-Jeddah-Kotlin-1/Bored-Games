@@ -2,6 +2,7 @@ package com.tuwaiq.boredgames.Settings
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,10 +11,13 @@ import android.view.ViewGroup
 import android.widget.*
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.firebase.auth.FirebaseAuth
+import com.tuwaiq.boredgames.Auth.Login
 import com.tuwaiq.boredgames.R
+import com.tuwaiq.boredgames.Ui.HomePage
 
 
-class BottomSheetFragment : BottomSheetDialogFragment(), AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener {
+class BottomSheetFragment : BottomSheetDialogFragment() {
 
 
     lateinit var etUsernameChange : EditText
@@ -21,7 +25,6 @@ class BottomSheetFragment : BottomSheetDialogFragment(), AdapterView.OnItemSelec
     lateinit var radioEng : RadioButton
     lateinit var btnConfirm : Button
     lateinit var btnLogout : Button
-    private var spanner : TextView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,30 +43,27 @@ class BottomSheetFragment : BottomSheetDialogFragment(), AdapterView.OnItemSelec
         btnConfirm = view.findViewById(R.id.btn_confirm)
         btnLogout = view.findViewById(R.id.btn_logout)
 
+        btnLogout.setOnClickListener {
+
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(this.context, Login::class.java))
+        }
+
+        btnConfirm.setOnClickListener {
+            updateSettings()
+        }
 
 
     }
-    @SuppressLint("InflateParams")
-    private fun bottomSheetProperties() {
 
+    private fun updateSettings(){
         val view: View = layoutInflater.inflate(R.layout.fragment_bottom_sheet, null)
         val builder = BottomSheetDialog(view.context)
         builder.setTitle("Settings")
         builder.show()
-
-    }
-    override fun onItemSelected(arg0: AdapterView<*>, arg1: View, position: Int, id: Long) {
-
-        spanner!!.text = this.resources.getStringArray(R.array.Languages)[position]
     }
 
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("Not yet implemented")
-    }
 
-    override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        spanner!!.text = this.resources.getStringArray(R.array.Languages)[p2]
-    }
 
 
 }

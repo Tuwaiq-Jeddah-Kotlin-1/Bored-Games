@@ -1,6 +1,7 @@
 package com.tuwaiq.boredgames.Ui
 
 import android.content.Intent
+import android.graphics.drawable.AnimationDrawable
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -9,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.tuwaiq.boredgames.R
 import com.tuwaiq.boredgames.Settings.BottomSheetFragment
+import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_signup.*
+import kotlinx.android.synthetic.main.activity_signup.sign_up_layout
 import java.io.IOException
 
 class HomePage : AppCompatActivity() {
@@ -23,6 +27,12 @@ class HomePage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        val animationDrawable = home_layout.background as AnimationDrawable
+        animationDrawable.apply {
+            setEnterFadeDuration(1000)
+            setExitFadeDuration(2000)
+            start()
+        }
 
         btnSound = findViewById(R.id.btn_sound)
         btnPlay = findViewById(R.id.btn_play_games)
@@ -52,7 +62,7 @@ class HomePage : AppCompatActivity() {
             Snackbar.make(btnSound,"The song is now playing", Snackbar.LENGTH_SHORT).setAction("Action", null).show()
             //Toast.makeText(this,"The song is now playing", Toast.LENGTH_SHORT).show()
             try {
-                mediaPlayer = MediaPlayer.create(this, R.raw.new_sound_file)
+                mediaPlayer = MediaPlayer.create(this, R.raw.wii_music_background)
                 mediaPlayer.start()
                 mediaPlayer.setLooping(true)
             }catch (e: IOException){

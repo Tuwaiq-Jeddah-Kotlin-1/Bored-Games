@@ -1,6 +1,7 @@
 package com.tuwaiq.boredgames.Auth
 
 import android.content.Intent
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
@@ -14,6 +15,8 @@ import com.google.firebase.ktx.Firebase
 import com.tuwaiq.boredgames.Data.Users
 import com.tuwaiq.boredgames.R
 import com.tuwaiq.boredgames.Ui.HomePage
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_signup.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,6 +34,13 @@ class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
+
+        val animationDrawable = sign_up_layout.background as AnimationDrawable
+        animationDrawable.apply {
+            setEnterFadeDuration(1000)
+            setExitFadeDuration(2000)
+            start()
+        }
 
         supportActionBar?.hide()
 

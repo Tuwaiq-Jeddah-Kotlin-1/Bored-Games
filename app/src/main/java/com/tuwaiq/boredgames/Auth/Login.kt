@@ -10,15 +10,18 @@ import android.os.Bundle
 import android.provider.DocumentsContract
 import android.text.TextUtils
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.LayoutAnimationController
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintSet
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.tuwaiq.boredgames.R
 import com.tuwaiq.boredgames.Ui.HomePage
+import kotlinx.android.synthetic.main.activity_login.*
 
 class Login : AppCompatActivity() {
 
@@ -35,10 +38,14 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        val animationDrawable = layout_login.background as AnimationDrawable
+        animationDrawable.apply {
+            setEnterFadeDuration(1000)
+            setExitFadeDuration(2000)
+            start()
+        }
+
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-
-
-
 
         etEmail = findViewById(R.id.et_email)
         etPassword = findViewById(R.id.et_password)
