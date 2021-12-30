@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="enter_email">أدخل البريد الالكتروني</string>
+    <string name="prompt_email">البريد الالكتروني</string>
+    <string name="prompt_password">كلمة المرور</string>
+    <string name="enter_password">ادخل كلمة المرور</string>
+    <string name="remember_me">تذكرني</string>
+    <string name="new_game">لعبة جديدة</string>
+    <string name="settings">الاعدادات</string>
+    <string name="help">النجدة</string>
+    <string name="sliding_puzzle">لعبة أحجية الأرقام</string>
+    <string name="enter_username">أدخل اسم المستخدم</string>
+    <string name="forgot_my_password">نسيت كلمة المرور</string>
+    <string name="login">تسجيل دخول</string>
+    <string name="new_click_here">مستخدم جديد؟ أنقر هنا</string>
+    <string name="confirm">تأكيد</string>
+    <string name="logout">تسجيل خروج</string>
+    <string name="english">انجليزي</string>
+    <string name="arabic">عربي</string>
+    <string name="change_username">تغيير اسم المستخدم</string>
+    <string name="user">المستخدم</string>
+    <string name="sign_up">تسجيل حساب جديد</string>
+    <string name="sound">الصوت</string>
+    <string name="play_games">ابدأ اللعب</string>
+    <string name="choose_a_game">اختار لعبة</string>
+    <string name="hangman">لعبة تخمين الكلمة</string>
+    <string name="hangedman">المشنوق</string>
+    <string name="jigsaw_puzzle">لعبة أحجية الصور</string>
+    <string name="puzzle_game">أحجية الصور</string>
+    <string name="number_game">أحجية الارقام</string>
+    <string name="start_new_game_retry">ابدأ لعبة جديدة/اعادة المحاولة</string>
+    <string name="you_lost">خسرت</string>
+    <string name="you_won">فزت</string>
+    <string name="changing_password">تغيير كلمة المرور</string>
+    <string name="type_down_your_email_to_reset_your_new_password">اكتب بريدك الالكتروني هنا من أجل اعادة ارسال كلمة المرور</string>
+    <string name="enter_email_">ادخل بريدك الالكتروني</string>
+    <string name="send">ارسال</string>
+</resources>

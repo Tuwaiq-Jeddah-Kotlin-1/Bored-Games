@@ -16,8 +16,8 @@
         android:layout_marginBottom="119dp"
         android:fontFamily="casual"
         android:gravity="center"
-        android:text="Choose a Game:"
-        android:textSize="47dp"
+        android:text="@string/choose_a_game"
+        android:textSize="47sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cardView1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,25 +35,28 @@
         android:layout_marginStart="55dp"
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="15dp"
+        android:outlineSpotShadowColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:ignore="UseCompoundDrawables">
             <ImageView
                 android:layout_width="140dp"
                 android:layout_height="match_parent"
                 android:padding="10dp"
-                android:src="@drawable/hangman_icon"/>
+                android:src="@drawable/hangman_icon"
+                android:contentDescription="@string/hangedman" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:fontFamily="casual"
                 android:padding="15dp"
-                android:text="Hangman"
-                android:textSize="29dp"
+                android:text="@string/hangman"
+                android:textSize="29sp"
                 android:textStyle="bold" />
 
 
@@ -77,20 +80,22 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:ignore="UseCompoundDrawables">
             <ImageView
                 android:layout_width="140dp"
                 android:layout_height="match_parent"
                 android:padding="10dp"
-                android:src="@drawable/puzzle_piece"/>
+                android:src="@drawable/puzzle_piece"
+                android:contentDescription="@string/puzzle_game" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:fontFamily="casual"
                 android:padding="15dp"
-                android:text="Jigsaw Puzzle"
-                android:textSize="30dp"
+                android:text="@string/jigsaw_puzzle"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
 
@@ -113,20 +118,22 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="UseCompoundDrawables">
         <ImageView
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:padding="10dp"
-            android:src="@drawable/numbers_puzzle"/>
+            android:src="@drawable/numbers_puzzle"
+            android:contentDescription="@string/number_game" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:fontFamily="casual"
             android:padding="15dp"
-            android:text="Sliding Puzzle"
-            android:textSize="30dp"
+            android:text="@string/sliding_puzzle"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
     </LinearLayout>

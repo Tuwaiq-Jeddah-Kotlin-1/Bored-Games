@@ -8,6 +8,21 @@
     android:background="@drawable/gradient_list"
     tools:context=".Auth.Login">
 
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="180dp"
+        android:progress="@integer/material_motion_duration_medium_1"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.298"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.imageview.ShapeableImageView
 
@@ -45,61 +60,62 @@
         <LinearLayout
             android:layout_width="220dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                app:passwordToggleTint="@color/white"
                 android:textColorHint="@color/white"
-                app:boxBackgroundColor="@color/colorGradientRoyalBlue">
+                app:boxBackgroundColor="@color/colorGradientRoyalBlue"
+                app:passwordToggleTint="@color/white">
 
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:gravity="center_horizontal"
-                android:id="@+id/et_email"
-                android:layout_marginTop="20dp"
-                android:layout_width="222dp"
-                android:layout_height="match_parent"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:autofillHints="@string/prompt_email"
-                android:drawableStart="@drawable/ic_baseline_email_24"
-                android:hint="@string/enter_email"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_email"
+                    android:layout_width="222dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:autofillHints="@string/prompt_email"
+                    android:drawableStart="@drawable/ic_baseline_email_24"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/enter_email"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <View
                 android:id="@+id/divider4"
                 android:layout_width="match_parent"
                 android:layout_height="5dp"
-                android:backgroundTint="@color/white"
-                android:background="@color/white" />
+                android:background="@color/white"
+                android:backgroundTint="@color/white" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                app:passwordToggleEnabled="true"
                 android:gravity="center"
-                app:passwordToggleTint="@color/white"
                 android:textColorHint="@color/white"
-                app:boxBackgroundColor="@color/colorGradientRoyalBlue">
+                app:boxBackgroundColor="@color/colorGradientRoyalBlue"
+                app:endIconDrawable="@drawable/eye_password"
+                app:passwordToggleDrawable="@drawable/eye_password"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_password"
                     android:layout_width="222dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
-                    android:gravity="center_horizontal"
-                    android:paddingLeft="10dp"
-                    android:drawableStart="@drawable/ic_baseline_lock_24"
-                    android:hint="Enter Password"
                     android:autofillHints="Enter Password"
-                    android:textColorHint="@color/white"
-                    android:id="@+id/et_password"
-                    />
+                    android:drawableStart="@drawable/ic_baseline_lock_24"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/enter_password"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -107,36 +123,27 @@
                 android:id="@+id/divider3"
                 android:layout_width="match_parent"
                 android:layout_height="5dp"
-                android:backgroundTint="@color/white"
-                android:background="@color/white" />
+                android:background="@color/white"
+                android:backgroundTint="@color/white" />
 
-
-
-            <ProgressBar
-                android:id="@+id/loading"
-                android:layout_width="0dp"
-                android:layout_height="11dp"
-                android:layout_gravity="center"
-                android:visibility="gone"
-                tools:ignore="MissingConstraints" />
 
             <CheckBox
                 android:id="@+id/remember_me"
-                android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="@string/remember_me"/>
+                android:layout_marginTop="25dp"
+                android:text="@string/remember_me"
+                android:textColor="@color/white" />
+
             <TextView
                 android:id="@+id/forgot_password"
-                android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:layout_marginTop="15dp"
                 android:text="@string/forgot_my_password"
                 android:textColor="@color/white"
+                android:textStyle="bold"
                 tools:ignore="MissingConstraints" />
-
 
 
         </LinearLayout>
@@ -149,10 +156,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="Login"
-        android:textColor="@color/white"
         android:backgroundTint="@color/colorGradientRoyalBlue"
         android:gravity="center"
+        android:text="@string/login"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
@@ -165,9 +172,9 @@
         android:layout_marginTop="56dp"
         android:layout_marginEnd="156dp"
         android:layout_marginBottom="46dp"
-        android:textStyle="bold"
-        android:text="New? Click here"
+        android:text="@string/new_click_here"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

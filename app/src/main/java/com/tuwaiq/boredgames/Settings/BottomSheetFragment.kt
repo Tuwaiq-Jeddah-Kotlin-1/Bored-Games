@@ -1,9 +1,11 @@
 package com.tuwaiq.boredgames.Settings
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat.recreate
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -25,19 +28,21 @@ import com.tuwaiq.boredgames.Ui.HomePage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.*
 
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
 
 
-    lateinit var tvUsername : TextView
-    lateinit var etUsernameChange : EditText
-    lateinit var radioArb : RadioButton
-    lateinit var radioEng : RadioButton
-    lateinit var btnConfirm : Button
-    lateinit var btnLogout : Button
-    lateinit var sharedPreferences : SharedPreferences
-    lateinit var sharedPreferencesTwo : SharedPreferences
+    private lateinit var tvUsername : TextView
+    private lateinit var etUsernameChange : EditText
+    private lateinit var radioArb : RadioButton
+    private lateinit var radioEng : RadioButton
+    private lateinit var btnConfirm : Button
+    private lateinit var btnLogout : Button
+    private lateinit var sharedPreferences : SharedPreferences
+    private lateinit var sharedPreferencesTwo : SharedPreferences
+    private lateinit var sharedPreferencesThree :SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,6 +94,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                         dialog, _ ->
                     editUser()
                     getUser()
+                    changeLanguage()
                     startActivity(Intent(this.context, HomePage::class.java))
                     dialog.dismiss()
                 }.setNegativeButton("No"){
@@ -138,11 +144,46 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
     }
 
-    private fun localization(){
+    private fun localization(lang: String){
+        val locale =Locale(lang)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.locale = locale
+        //---------------------------------------------------------------
+        context?.resources?.updateConfiguration(config, requireContext().resources.displayMetrics)
+
+        sharedPreferencesThree = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreferencesThree.edit()
+        editor.putString("Settings", "${locale}")
+        editor.apply()
+
+        startActivity(Intent(this.context, HomePage::class.java))
 
     }
 
+    private fun changeLanguage(){
+        val view: View = layoutInflater.inflate(R.layout.fragment_bottom_sheet, null)
+        val builder = BottomSheetDialog(requireView().context!!)
+        builder.setTitle("Change Language")
+        val btnChangeLanguage = requireView()
+        val listItems = arrayOf("Arabic", "English")
 
+        val radioGroup = requireView()
+        //radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            //val selectedLanguage:RadioButton=view.findViewById(checkedId)
+            btnChangeLanguage.setOnClickListener {
+                //Log.e("language","${selectedLanguage.text}")
 
+                //if (selectedLanguage.text.toString()=="Arabic"){
+                    localization("ar")
 
-}
+                }//else if (selectedLanguage.text.toString()=="English"){
+                    localization("en")
+
+                }
+            }
+        //}
+        //builder.setContentView(view)
+    //}
+
+//}

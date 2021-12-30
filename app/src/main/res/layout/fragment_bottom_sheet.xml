@@ -34,7 +34,8 @@
                 android:layout_width="222dp"
                 android:layout_height="51dp"
                 android:autofillHints="@string/prompt_password"
-                android:text="ALBASIL"
+                android:hint="@string/user"
+                android:textColorHint="@color/white"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:gravity="center"
@@ -58,7 +59,7 @@
                 android:gravity="center"
                 android:layout_height="51dp"
                 android:autofillHints="@string/prompt_email"
-                android:hint="Change Username"
+                android:hint="@string/change_username"
                 android:textColor="@color/white"
                 android:drawableStart="@drawable/ic_baseline_edit_24"
                 android:textColorHint="@color/white"
@@ -78,13 +79,13 @@
                     android:id="@+id/arb_lang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Arabic"
+                    android:text="@string/arabic"
                     android:textColor="@color/white"/>
                 <RadioButton
                     android:id="@+id/eng_lang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="English"
+                    android:text="@string/english"
                     android:layout_marginLeft="70dp"
                     android:textColor="@color/white"/>
             </RadioGroup>
@@ -102,7 +103,7 @@
                 android:layout_marginStart="80dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="Confirm"
+                android:text="@string/confirm"
                 android:textColor="@color/white"
                 android:backgroundTint="#0BA611"/>
             <Button
@@ -111,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:gravity="center"
-                android:text="LOGOUT"
+                android:text="@string/logout"
                 android:drawableEnd="@drawable/ic_baseline_login_24"
                 android:paddingEnd="50dp"
                 android:paddingStart="60dp"

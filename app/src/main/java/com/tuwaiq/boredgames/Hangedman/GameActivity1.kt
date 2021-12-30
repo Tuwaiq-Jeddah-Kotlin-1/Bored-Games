@@ -13,7 +13,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import com.tuwaiq.boredgames.R
-import com.tuwaiq.boredgames.SlidingPuzzle.SettingsDialogFragment
 
 class GameActivity1 : AppCompatActivity() {
 
@@ -28,7 +27,7 @@ class GameActivity1 : AppCompatActivity() {
     private lateinit var lettersLayout: ConstraintLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hanged_man)
+        setContentView(R.layout.activity_game1)
         imageView = findViewById(R.id.imageView)
         wordTextView = findViewById(R.id.wordTextView)
         lettersUsedTextView = findViewById(R.id.lettersUsedTextView)
