@@ -82,9 +82,19 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
         btnConfirm.setOnClickListener {
 
-            editUser()
-            getUser()
-            startActivity(Intent(this.context, HomePage::class.java))
+            AlertDialog.Builder(this.requireContext())
+                .setTitle("Settings")
+                .setMessage("Are you sure you want to change settings?")
+                .setPositiveButton("Yes"){
+                        dialog, _ ->
+                    editUser()
+                    getUser()
+                    startActivity(Intent(this.context, HomePage::class.java))
+                    dialog.dismiss()
+                }.setNegativeButton("No"){
+                        dialog, _ -> dialog.dismiss()
+                }.create().show()
+
         }
 
 
