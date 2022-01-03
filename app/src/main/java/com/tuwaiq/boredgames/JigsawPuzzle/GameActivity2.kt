@@ -1,6 +1,7 @@
 package com.tuwaiq.boredgames.JigsawPuzzle
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +44,7 @@ class GameActivity2 : AppCompatActivity() {
             Toast.makeText(this, e.localizedMessage, Toast.LENGTH_SHORT).show()
         }
     }
+    @SuppressLint("QueryPermissionsNeeded")
     fun onImageFromCameraClick(view: View?) {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         if (intent.resolveActivity(packageManager) != null) {
@@ -53,6 +55,7 @@ class GameActivity2 : AppCompatActivity() {
                 Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
             }
             if (photoFile != null) {
+                photoFile = getFileStreamPath("img")
                 val photoUri = FileProvider.getUriForFile(
                     this, applicationContext.packageName + ".fileprovider", photoFile
                 )
@@ -160,10 +163,7 @@ class GameActivity2 : AppCompatActivity() {
                     .setPositiveButton(getString(R.string.i_understand)){
                             dialog, _ -> dialog.dismiss()
                     }.show()
-
             }
-
-
         }
         return super.onOptionsItemSelected(item)
     }

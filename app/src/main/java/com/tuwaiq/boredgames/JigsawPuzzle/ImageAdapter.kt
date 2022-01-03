@@ -1,5 +1,6 @@
 package com.tuwaiq.boredgames.JigsawPuzzle
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.AssetManager
 import android.graphics.Bitmap
@@ -42,7 +43,7 @@ class ImageAdapter(private val mContext: Context) : BaseAdapter() {
         imageView.post {
             object : AsyncTask<Void?, Void?, Void?>() {
                 private var bitmap: Bitmap? = null
-                protected override fun doInBackground(vararg p0: Void?): Void? {
+                 override fun doInBackground(vararg p0: Void?): Void? {
                     bitmap = getPicFromAsset(imageView, files!![position])
                     return null
                 }
