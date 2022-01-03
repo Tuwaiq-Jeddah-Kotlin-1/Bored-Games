@@ -25,6 +25,8 @@ import com.tuwaiq.boredgames.Auth.Login
 import com.tuwaiq.boredgames.Auth.SignUp
 import com.tuwaiq.boredgames.R
 import com.tuwaiq.boredgames.Ui.HomePage
+import kotlinx.android.synthetic.main.activity_game1.*
+import kotlinx.android.synthetic.main.fragment_bottom_sheet.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -66,38 +68,76 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         btnLogout = view.findViewById(R.id.btn_logout)
         tvUsername = view.findViewById(R.id.username_settings)
         val userReference = sharedPreferencesTwo.getString("refUsername"," ")
+
+
+        val radioGroup =view.findViewById<RadioGroup>(R.id.btn_group)
+
         tvUsername.text = userReference
 
-        getUser()
 
         btnLogout.setOnClickListener {
+
             //FirebaseAuth.getInstance().signOut()
             AlertDialog.Builder(this.requireContext())
-                .setTitle("Logging Out!!")
-                .setMessage("Are you sure you want to logout?")
-                .setPositiveButton("Yes"){
+                .setTitle(getString(R.string.logging_out))
+                .setMessage(getString(R.string.sure_logout))
+                .setPositiveButton(getString(R.string.yes)){
                         dialog, _ -> getLogOut()
                     startActivity(Intent(this.context, Login::class.java))
                     dialog.dismiss()
-                }.setNegativeButton("No"){
+                }.setNegativeButton(getString(R.string.no)){
                         dialog, _ -> dialog.dismiss()
                 }.create().show()
+        }
 
+
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            val selectedLanguage:RadioButton=view.findViewById(checkedId)
+
+            if (selectedLanguage.text.toString()=="Arabic"){
+
+                localization("ar")
+
+            }else if (selectedLanguage.text.toString()=="English"){
+
+                localization("en")
+
+
+            }
         }
 
         btnConfirm.setOnClickListener {
 
+
+            if (view is RadioButton) {
+                val checked = (view).isChecked
+
+                when ((view).getId()) {
+                    R.id.arb_lang ->
+                        if (checked) {
+                            localization("ar")
+                            Log.e("Language","عربي")
+
+                        }
+                    R.id.eng_lang ->
+                        if (checked) {
+                            Log.e("Language","English")
+                            localization("en")
+
+                        }
+                }
+            }
+
             AlertDialog.Builder(this.requireContext())
-                .setTitle("Settings")
-                .setMessage("Are you sure you want to change settings?")
-                .setPositiveButton("Yes"){
+                .setTitle(getString(R.string.settings))
+                .setMessage(getString(R.string.settings_change))
+                .setPositiveButton(getString(R.string.yes)){
                         dialog, _ ->
                     editUser()
                     getUser()
-                    changeLanguage()
                     startActivity(Intent(this.context, HomePage::class.java))
                     dialog.dismiss()
-                }.setNegativeButton("No"){
+                }.setNegativeButton(getString(R.string.no)){
                         dialog, _ -> dialog.dismiss()
                 }.create().show()
 
@@ -140,8 +180,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         val uId = FirebaseAuth.getInstance().currentUser?.uid
         val upDateUserData = Firebase.firestore.collection("Users")
         upDateUserData.document(uId.toString()).update("username", etUsernameChange.text.toString())
-        Toast.makeText(context,"edit is successful",Toast.LENGTH_LONG).show()
-
+        Toast.makeText(context,getString(R.string.settings_saved),Toast.LENGTH_LONG).show()
     }
 
     private fun localization(lang: String){
@@ -154,36 +193,13 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
         sharedPreferencesThree = this.requireActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferencesThree.edit()
-        editor.putString("Settings", "${locale}")
+        editor.putString("Settings", "$locale")
         editor.apply()
 
-        startActivity(Intent(this.context, HomePage::class.java))
 
     }
 
-    private fun changeLanguage(){
-        val view: View = layoutInflater.inflate(R.layout.fragment_bottom_sheet, null)
-        val builder = BottomSheetDialog(requireView().context!!)
-        builder.setTitle("Change Language")
-        val btnChangeLanguage = requireView()
-        val listItems = arrayOf("Arabic", "English")
 
-        val radioGroup = requireView()
-        //radioGroup.setOnCheckedChangeListener { group, checkedId ->
-            //val selectedLanguage:RadioButton=view.findViewById(checkedId)
-            btnChangeLanguage.setOnClickListener {
-                //Log.e("language","${selectedLanguage.text}")
 
-                //if (selectedLanguage.text.toString()=="Arabic"){
-                    localization("ar")
 
-                }//else if (selectedLanguage.text.toString()=="English"){
-                    localization("en")
-
-                }
-            }
-        //}
-        //builder.setContentView(view)
-    //}
-
-//}
+}

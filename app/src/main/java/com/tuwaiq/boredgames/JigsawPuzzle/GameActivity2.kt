@@ -155,11 +155,9 @@ class GameActivity2 : AppCompatActivity() {
         when(item.itemId){
             R.id.action_help ->{
                 AlertDialog.Builder(this)
-                    .setTitle("Rules!!")
-                    .setMessage("The goal of the puzzle is to move and insert the pieces into their respectful place " +
-                            "based on the image in the background. You can change the theme of the puzzle from " +
-                            "your own image gallery.")
-                    .setPositiveButton("I Understand"){
+                    .setTitle(getString(R.string.rules))
+                    .setMessage(getString(R.string.dialog3))
+                    .setPositiveButton(getString(R.string.i_understand)){
                             dialog, _ -> dialog.dismiss()
                     }.show()
 

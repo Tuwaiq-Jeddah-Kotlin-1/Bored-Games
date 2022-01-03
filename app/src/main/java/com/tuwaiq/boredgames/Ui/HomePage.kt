@@ -47,12 +47,13 @@ class HomePage : AppCompatActivity() {
         }
         btnSettings.setOnClickListener {
             val bottomSheetFragment = BottomSheetFragment()
+
             bottomSheetFragment.show(supportFragmentManager, "BottomSheetDialog")
 
         }
     }
     override fun onBackPressed() {
-        Toast.makeText(applicationContext, "You need to Logout First", Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, getString(R.string.logout_first), Toast.LENGTH_SHORT).show()
     }
     var mediaPlayer = MediaPlayer()
 
@@ -60,7 +61,7 @@ class HomePage : AppCompatActivity() {
 
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
         if (!mediaPlayer.isPlaying){
-            Snackbar.make(btnSound,"The song is now playing", Snackbar.LENGTH_SHORT).setAction("Action", null).show()
+            Snackbar.make(btnSound,getString(R.string.song_playing), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
             //Toast.makeText(this,"The song is now playing", Toast.LENGTH_SHORT).show()
             try {
                 mediaPlayer = MediaPlayer.create(this, R.raw.wii_music_background)
@@ -70,7 +71,7 @@ class HomePage : AppCompatActivity() {
                 e.printStackTrace()
             }
         }else{
-            Snackbar.make(btnSound,"The song stopped", Snackbar.LENGTH_SHORT).setAction("Action", null).show()
+            Snackbar.make(btnSound,getString(R.string.song_stopped), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
             try {
                 mediaPlayer.pause()
                 mediaPlayer.stop()
@@ -81,6 +82,8 @@ class HomePage : AppCompatActivity() {
 
         }
     }
+
+
 
 
 

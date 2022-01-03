@@ -1,5 +1,6 @@
 package com.tuwaiq.boredgames.SlidingPuzzle
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
@@ -37,7 +38,7 @@ class GameActivity3: AppCompatActivity() {
         mainView!!.removeView(boardView)
         boardView = BoardView(this, board!!)
         mainView!!.addView(boardView)
-        moves.text = "Number of Movements: 0"
+        moves.text = getString(R.string.number_of_movements)
     }
 
     fun changeSize(newSize: Int){
@@ -49,24 +50,26 @@ class GameActivity3: AppCompatActivity() {
     }
 
     private val boardChangeListener: BoardChangeListener = object: BoardChangeListener{
+        @SuppressLint("SetTextI18n")
         override fun tileSlid(from: Place?, to: Place?, numbOfMoves: Int) {
-            moves.text = "Number of Movements: ${numbOfMoves}"
+            moves.text = "${getString(R.string.number_movements)} ${numbOfMoves}"
         }
 
+        @SuppressLint("SetTextI18n")
         override fun solved(numbOfMoves: Int) {
-            moves.text = "Solved in ${numbOfMoves} moves"
+            moves.text = "${getString(R.string.solved_in)} ${numbOfMoves} ${getString(R.string.moves)}"
 
             AlertDialog.Builder(this@GameActivity3)
-                .setTitle("Congratulations... !!")
+                .setTitle(getString(R.string.congratulations))
                 .setIcon(R.drawable.ic_celebration)
-                .setMessage("You won in $numbOfMoves move... !! \nIf you want a New Game.. !!")
-                .setPositiveButton("Yes"){
+                .setMessage("${getString(R.string.you_won_in)} $numbOfMoves ${getString(R.string.move__)} \n ${getString(R.string.want_new_game)}")
+                .setPositiveButton(getString(R.string.yes)){
                     dialog, _ ->  board!!.rearrange()
-                    moves.text = "Number of Movements: 0"
+                    moves.text = getString(R.string.number_of_movements)
                     boardView!!.invalidate()
                     dialog.dismiss()
                 }
-                .setNegativeButton("No"){
+                .setNegativeButton(getString(R.string.no)){
                     dialog, _ -> dialog.dismiss()
                 }.create().show()
         }
@@ -83,15 +86,15 @@ class GameActivity3: AppCompatActivity() {
          when(item.itemId){
             R.id.action_newgame ->{
                 AlertDialog.Builder(this)
-                    .setTitle("New Game")
+                    .setTitle(getString(R.string.new_game))
                     .setIcon(R.drawable.ic_new_style_24)
-                    .setMessage("Are you sure you want to begin a New Game?")
-                    .setPositiveButton("Yes"){
+                    .setMessage(getString(R.string.begin_new_game))
+                    .setPositiveButton(getString(R.string.yes)){
                         dialog, _ -> board!!.rearrange()
-                        moves.text = "Number of Movements: 0"
+                        moves.text = getString(R.string.number_of_movements)
                         boardView!!.invalidate()
                         dialog.dismiss()
-                    }.setNegativeButton("No"){
+                    }.setNegativeButton(getString(R.string.no)){
                         dialog, _ -> dialog.dismiss()
                     }.create().show()
 
@@ -103,12 +106,9 @@ class GameActivity3: AppCompatActivity() {
             }
             R.id.action_help ->{
                 AlertDialog.Builder(this)
-                    .setTitle("Rules!!")
-                    .setMessage("The goal of the puzzle is to place the tiles" +
-                            " in order by making sliding moves that use the empty space." +
-                            "The only valid moves are to move a tile which is immediately " +
-                            "adjacent to the blank into the location of the blank space.")
-                    .setPositiveButton("I Understand"){
+                    .setTitle(getString(R.string.rules))
+                    .setMessage(getString(R.string.dialog1))
+                    .setPositiveButton(getString(R.string.i_understand)){
                         dialog, _ -> dialog.dismiss()
                     }.show()
 

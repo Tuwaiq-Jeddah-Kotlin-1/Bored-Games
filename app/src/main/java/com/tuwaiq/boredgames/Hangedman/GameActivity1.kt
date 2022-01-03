@@ -57,7 +57,7 @@ class GameActivity1 : AppCompatActivity() {
             is GameState.Lost -> showGameLost(gameState.wordToGuess)
             is GameState.Running -> {
                 wordTextView.text = gameState.underscoreWord
-                lettersUsedTextView.text = "Letters used: ${gameState.lettersUsed}"
+                lettersUsedTextView.text = " ${getString(R.string.letters_used)} ${gameState.lettersUsed}"
                 imageView.setImageDrawable(ContextCompat.getDrawable(this, gameState.drawable))
             }
             is GameState.Won -> showGameWon(gameState.wordToGuess)
@@ -96,11 +96,9 @@ class GameActivity1 : AppCompatActivity() {
         when(item.itemId){
             R.id.action_help ->{
                 AlertDialog.Builder(this)
-                    .setTitle("Rules!!")
-                    .setMessage("The goal of this word puzzle is to guess the correct word by choosing " +
-                            "letters. You have 7 tries until failure and you need to guess correctly. \n" +
-                            "PRO TIP: Start with vowels!!")
-                    .setPositiveButton("I Understand"){
+                    .setTitle(getString(R.string.rules))
+                    .setMessage(getString(R.string.dialog2))
+                    .setPositiveButton(getString(R.string.i_understand)){
                             dialog, _ -> dialog.dismiss()
                     }.show()
 

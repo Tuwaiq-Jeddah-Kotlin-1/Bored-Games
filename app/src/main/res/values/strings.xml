@@ -42,7 +42,40 @@
     <string name="type_down_your_email_to_reset_your_new_password">Type down your Email to reset your new password.</string>
     <string name="enter_email_">Enter Email</string>
     <string name="send">Send</string>
-
+    <string name="rules">Rules!!</string>
+    <string name="i_understand">I Understand</string>
+    <string name="dialog1">The goal of the puzzle is to place the tiles
+        in order by making sliding moves that use the empty space.
+        The only valid moves are to move a tile which is immediately
+        adjacent to the blank into the location of the blank space.</string>
+    <string name="begin_new_game">Are you sure you want to begin a New Game?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="number_of_movements">Number of Movements: 0</string>
+    <string name="number_movements">Number of Movements:</string>
+    <string name="solved_in">Solved in</string>
+    <string name="moves">moves</string>
+    <string name="congratulations">Congratulations... !!</string>
+    <string name="settings_change">Are you sure you want to change settings?</string>
+    <string name="settings_saved">Settings is Saved</string>
+    <string name="sure_logout">Are you sure you want to logout?</string>
+    <string name="logging_out">Logging Out!!</string>
+    <string name="logout_first">You need to Logout First</string>
+    <string name="song_playing">The song is now playing</string>
+    <string name="song_stopped">The song stopped</string>
+    <string name="you_won_in">You won in</string>
+    <string name="move__">move... !!</string>
+    <string name="want_new_game">If you want a New Game.. !!</string>
+    <string name="letters_used">Letters used:</string>
+    <string name="dialog2">The goal of this word puzzle is to guess the correct word by choosing letters.
+        You have 7 tries until failure and you need to guess correctly.
+        PRO TIP: Start with vowels!!</string>
+    <string name="dialog3">The goal of the puzzle is to move and insert the pieces into their respectful place
+        based on the image in the background.
+        You can change the theme of the puzzle from your own image gallery.</string>
+    <string name="size_puzzle">Define the size of the puzzle</string>
+    <string name="change">Change</string>
+    <string name="cancel">Cancel</string>
     <string-array name="size_options">
         <item>2</item>
         <item>3</item>
