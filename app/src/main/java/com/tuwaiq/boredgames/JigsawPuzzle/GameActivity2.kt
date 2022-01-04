@@ -55,7 +55,6 @@ class GameActivity2 : AppCompatActivity() {
                 Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
             }
             if (photoFile != null) {
-                photoFile = getFileStreamPath("img")
                 val photoUri = FileProvider.getUriForFile(
                     this, applicationContext.packageName + ".fileprovider", photoFile
                 )

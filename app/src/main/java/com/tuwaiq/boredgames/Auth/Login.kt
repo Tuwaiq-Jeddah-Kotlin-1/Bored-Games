@@ -5,41 +5,35 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.drawable.AnimationDrawable
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.provider.DocumentsContract
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
-import android.view.ViewGroup
-import android.view.animation.LayoutAnimationController
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintSet
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tuwaiq.boredgames.R
-import com.tuwaiq.boredgames.Settings.BottomSheetFragment
 import com.tuwaiq.boredgames.Ui.HomePage
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 class Login : AppCompatActivity() {
 
-    lateinit var etEmail : TextInputEditText
-    lateinit var etPassword : TextInputEditText
-    lateinit var btnLogin : Button
-    lateinit var tvSignup : TextView
-    lateinit var tvForgotPassword: TextView
-    lateinit var checkRemember : CheckBox
-    lateinit var sharedPreference : SharedPreferences
-    lateinit var sharedPreferencesTwo : SharedPreferences
-    var isChecked = false
+    private lateinit var etEmail : TextInputEditText
+    private lateinit var etPassword : TextInputEditText
+    private lateinit var btnLogin : Button
+    private lateinit var tvSignup : TextView
+    private lateinit var tvForgotPassword: TextView
+    private lateinit var checkRemember : CheckBox
+    private lateinit var sharedPreference : SharedPreferences
+    private lateinit var sharedPreferencesTwo : SharedPreferences
+    private var isChecked = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,14 +103,13 @@ class Login : AppCompatActivity() {
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener { task ->
 
+                            val uId =FirebaseAuth.getInstance().currentUser?.uid
                             // if the registration is successfully done
-                            if (task.isSuccessful) {
-                                //firebase register user
-                                //val firebaseUser: FirebaseUser = task.result!!.user!!
+                            if (task.isSuccessful){
 
-                                //==========
+                                //++++++++++++++++++++++++++
 
-
+                                detectUsers(uId.toString())
                                 val checked: Boolean = checkRemember.isChecked
                                 val editor: SharedPreferences.Editor = sharedPreference.edit()
                                 editor.putString("EMAIL", etEmail.text.toString())
@@ -124,24 +117,11 @@ class Login : AppCompatActivity() {
                                 editor.putBoolean("CHECKBOX", checked)
                                 editor.apply()
                                 getUser()
-//                                Toast.makeText(this, "${etEmail.text} ${etPassword.text} ${checked}", Toast.LENGTH_LONG).show()
-//                                Toast.makeText(this, "Saved Preference ${etEmail.text} ${etPassword.text}", Toast.LENGTH_LONG).show()
-                                //==========
-                                Toast.makeText(
-                                    this,
-                                    "Welcome",
-                                    Toast.LENGTH_SHORT
-                                ).show()
 
                                 //++++++++++++++++++++++++++
-
-                                startActivity(Intent(this, HomePage::class.java))
-
-                                //++++++++++++++++++++++++++
-                            } else {
+                            }else {
                                 // if the registration is not successful then show error massage
-                                Toast.makeText(
-                                    this,
+                                Toast.makeText(this,
                                     task.exception!!.message.toString(),
                                     Toast.LENGTH_LONG
                                 ).show()
@@ -156,6 +136,39 @@ class Login : AppCompatActivity() {
         }
 
     }
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, getString(R.string.login_first), Toast.LENGTH_SHORT).show()
+    }
+
+
+
+    fun detectUsers(userID:String) = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            //coroutine
+            val db = FirebaseFirestore.getInstance()
+            db.collection("Users")
+                .document("$userID")
+                .get().addOnCompleteListener {
+                    it
+                    if (it.result?.exists()!!) {
+                        startActivity(Intent(this@Login, HomePage::class.java))
+                        Toast.makeText(this@Login,"Welcome", Toast.LENGTH_SHORT).show()
+
+
+                    } else {
+                        Toast.makeText(this@Login,"This Account has been deleted", Toast.LENGTH_SHORT).show()
+
+                    }
+                }
+        } catch (e: Exception) {
+            withContext(Dispatchers.Main) {
+                // Toast.makeText(coroutineContext,0,0, e.message, Toast.LENGTH_LONG).show()
+                Log.e("FUNCTION createUserFirestore", "${e.message}")
+            }
+        }
+    }
+
+
 
     private fun getUser() = CoroutineScope(Dispatchers.IO).launch{
         val uId =FirebaseAuth.getInstance().currentUser?.uid

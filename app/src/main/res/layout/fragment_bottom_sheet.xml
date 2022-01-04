@@ -33,7 +33,6 @@
                 android:id="@+id/username_settings"
                 android:layout_width="222dp"
                 android:layout_height="51dp"
-                android:autofillHints="@string/prompt_password"
                 android:hint="@string/user"
                 android:textColorHint="@color/white"
                 android:textStyle="bold"
@@ -119,9 +118,17 @@
                 android:paddingStart="60dp"
                 android:textColor="@color/white"
                 android:backgroundTint="#E12E2E"/>
-
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="20dp"/>
 
         </LinearLayout>
+
 
     </com.google.android.material.card.MaterialCardView>
 

@@ -18,20 +18,38 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:configChanges="orientation"
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Auth.Login" />
-        <activity android:name=".Auth.SignUp" />
-        <activity android:name=".Ui.HomePage" />
-        <activity android:name=".Ui.Games" />
-        <activity android:name=".Hangedman.GameActivity1" />
-        <activity android:name=".JigsawPuzzle.GameActivity2"/>
-        <activity android:name=".JigsawPuzzle.PuzzleActivity"/>
-        <activity android:name=".SlidingPuzzle.GameActivity3"/>
+        <activity android:name=".Auth.Login"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Auth.SignUp"
+            android:configChanges="orientation"
+            android:screenOrientation="fullSensor"/>
+        <activity android:name=".Ui.HomePage"
+            android:configChanges="orientation"
+            android:screenOrientation="fullSensor"/>
+        <activity android:name=".Ui.Games"
+            android:configChanges="orientation"
+            android:screenOrientation="fullSensor"/>
+        <activity android:name=".Hangedman.GameActivity1"
+            android:configChanges="orientation"
+            android:screenOrientation="fullSensor"/>
+        <activity android:name=".JigsawPuzzle.GameActivity2"
+            android:configChanges="orientation"
+            android:screenOrientation="fullSensor"/>
+        <activity android:name=".JigsawPuzzle.PuzzleActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="fullSensor"/>
+        <activity android:name=".SlidingPuzzle.GameActivity3"
+            android:configChanges="orientation"
+            android:screenOrientation="fullSensor"/>
     </application>
 
 </manifest>

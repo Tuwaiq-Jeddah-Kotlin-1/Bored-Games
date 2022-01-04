@@ -76,6 +76,9 @@
     <string name="size_puzzle">Define the size of the puzzle</string>
     <string name="change">Change</string>
     <string name="cancel">Cancel</string>
+    <string name="login_first">You need to Login First</string>
+    <string name="warning">WARNING!!</string>
+    <string name="delete_account">Are you sure you want to delete this account for good?</string>
     <string-array name="size_options">
         <item>2</item>
         <item>3</item>
