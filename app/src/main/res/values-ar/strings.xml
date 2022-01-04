@@ -59,4 +59,14 @@
     <string name="letters_used">الحروف المستخدمة</string>
     <string name="dialog2">الهدف من هذه اللعبة هو تخمين الكلمة الصحيحة باختيار الأحرف الصحيحة.     لديك 7 محاولات الى الفشل وتحتاج في هذه المدة ان تخمن بشكل صحيح.     نصيحة: ابدأ بحروف العلّة!!</string>
     <string name="dialog3">الهدف من هذه اللعبة هو تحريك وادخال القطع الى مكانها الصحيح بناءاً على الصورة في الخلفية.     بامكانك تغيير صورة الاحجية من خلال الذهاب الى ملفات الصور الخاصة بك.</string>
+    <string name="size_puzzle">اختر حجم اللعبة</string>
+    <string name="change">تغيير</string>
+    <string name="cancel">اغلاق</string>
+    <string name="login_first">يجب ان تسجل الدخول أولا</string>
+    <string name="warning">تحذير!!</string>
+    <string name="delete_account">هل  أنت متأكد من حذف هذا الحساب؟</string>
+    <string name="deleted">تم حذف الحساب :(</string>
+    <string name="this_account_deleted">تم حذف هذا الحساب</string>
+    <string name="welcome">أهلا وسهلا</string>
+    <string name="registered">تم تسجيل الدخول بنجاح</string>
 </resources>

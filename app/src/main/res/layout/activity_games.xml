@@ -8,6 +8,7 @@
     android:id="@+id/game_choose_layout"
     android:background="@drawable/gradient_list">
 
+
     <TextView
         android:id="@+id/choose_game"
         android:layout_width="match_parent"
@@ -24,18 +25,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView1"
         android:clickable="true"
-        android:outlineAmbientShadowColor="@color/black"
-        app:cardBackgroundColor="#258F85"
+        android:elevation="30dp"
+        app:cardElevation="30dp"
         app:cardCornerRadius="30dp"
+        app:strokeWidth="4dp"
+        app:strokeColor="@color/white"
+        android:backgroundTint="#1DB123"
         android:layout_width="300dp"
         android:layout_height="150dp"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="15dp"
-        android:outlineSpotShadowColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -63,12 +66,16 @@
         </LinearLayout>
 
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView2"
         app:cardBackgroundColor="#7849CA"
+        android:elevation="30dp"
+        app:cardElevation="30dp"
         app:cardCornerRadius="30dp"
+        app:strokeColor="@color/white"
+        app:strokeWidth="4dp"
         android:layout_width="300dp"
         android:layout_height="150dp"
         android:layout_marginStart="55dp"
@@ -100,12 +107,16 @@
 
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView3"
         app:cardBackgroundColor="#D64576"
+        android:elevation="30dp"
+        app:cardElevation="30dp"
         app:cardCornerRadius="30dp"
+        app:strokeWidth="4dp"
+        app:strokeColor="@color/white"
         android:layout_width="300dp"
         android:layout_height="150dp"
         android:layout_marginStart="55dp"
@@ -124,6 +135,7 @@
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:padding="10dp"
+            android:layout_marginStart="5dp"
             android:src="@drawable/numbers_puzzle"
             android:contentDescription="@string/number_game" />
 
@@ -137,6 +149,6 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

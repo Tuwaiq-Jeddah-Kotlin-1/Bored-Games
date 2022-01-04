@@ -66,5 +66,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     // WorkManager
     implementation 'androidx.work:work-runtime-ktx:2.7.1'
+    //Lottie Animations
+    implementation "com.airbnb.android:lottie:4.2.2"
 
 }

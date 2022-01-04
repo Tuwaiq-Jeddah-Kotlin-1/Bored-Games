@@ -6,20 +6,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/gradient_center">
+    android:background="#16309F">
 
-    <ImageView
-        android:id="@+id/ic_logo"
-        android:layout_width="412dp"
-        android:layout_height="374dp"
-        android:layout_marginStart="95dp"
-        android:layout_marginTop="270dp"
-        android:layout_marginEnd="96dp"
-        android:layout_marginBottom="271dp"
-        android:src="@drawable/logo_motto"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/anim_bored"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toTopOf="@+id/motto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/bored_anim" />
+
+
+
+    <TextView
+        android:id="@+id/motto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="119dp"
+        android:paddingVertical="10dp"
+        android:text="BORED?! PLAY BOARD GAMES IN ONE APP"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/anim_bored" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

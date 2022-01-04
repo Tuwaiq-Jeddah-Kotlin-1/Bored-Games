@@ -11,6 +11,7 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -81,16 +82,14 @@ class Login : AppCompatActivity() {
                 TextUtils.isEmpty(etEmail.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this,
-                        "Please Enter Email",
-                        Toast.LENGTH_LONG
+                        getString(R.string.enter_email), Toast.LENGTH_LONG
                     ).show()
                 }
 
                 TextUtils.isEmpty(etPassword.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this,
-                        "Please Enter Password",
-                        Toast.LENGTH_LONG
+                        getString(R.string.enter_password), Toast.LENGTH_LONG
                     ).show()
 
                 }
@@ -152,11 +151,11 @@ class Login : AppCompatActivity() {
                     it
                     if (it.result?.exists()!!) {
                         startActivity(Intent(this@Login, HomePage::class.java))
-                        Toast.makeText(this@Login,"Welcome", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@Login,getString(R.string.welcome), Toast.LENGTH_SHORT).show()
 
 
                     } else {
-                        Toast.makeText(this@Login,"This Account has been deleted", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@Login,getString(R.string.this_account_deleted), Toast.LENGTH_SHORT).show()
 
                     }
                 }

@@ -61,16 +61,14 @@ class SignUp : AppCompatActivity() {
                 TextUtils.isEmpty(etEmailReg.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this,
-                        "Please Enter Email",
-                        Toast.LENGTH_LONG
+                        getString(R.string.enter_email), Toast.LENGTH_LONG
                     ).show()
                 }
 
                 TextUtils.isEmpty(etPasswordReg.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         this,
-                        "Please Enter Password",
-                        Toast.LENGTH_LONG
+                        getString(R.string.enter_password), Toast.LENGTH_LONG
                     ).show()
 
 
@@ -91,7 +89,7 @@ class SignUp : AppCompatActivity() {
                                 getUser()
                                 Toast.makeText(
                                     this,
-                                    "You were registered successfully",
+                                    getString(R.string.registered),
                                     Toast.LENGTH_SHORT
                                 ).show()
 

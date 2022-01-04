@@ -37,7 +37,7 @@ class HomePage : AppCompatActivity() {
 
     private lateinit var btnSound: Button
     private lateinit var btnPlay: Button
-    lateinit var btnSettings : Button
+    private lateinit var btnSettings : Button
     private lateinit var sharedPreferences : SharedPreferences
     private lateinit var sharedPreferencesFour :SharedPreferences
 
@@ -143,7 +143,7 @@ class HomePage : AppCompatActivity() {
 
 
             .addOnSuccessListener {
-            Toast.makeText(this,"Account has been deleted :(",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,getString(R.string.deleted),Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
                 Toast.makeText(this,"Error, Exception occurred", Toast.LENGTH_LONG
                 ).show()

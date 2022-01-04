@@ -79,6 +79,10 @@
     <string name="login_first">You need to Login First</string>
     <string name="warning">WARNING!!</string>
     <string name="delete_account">Are you sure you want to delete this account for good?</string>
+    <string name="deleted">Account has been deleted :(</string>
+    <string name="this_account_deleted">This Account has been deleted</string>
+    <string name="welcome">Welcome</string>
+    <string name="registered">You were registered successfully</string>
     <string-array name="size_options">
         <item>2</item>
         <item>3</item>
