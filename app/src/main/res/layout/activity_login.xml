@@ -158,7 +158,7 @@
     <Button
 
         android:id="@+id/btn_login"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         app:backgroundTint="@null"
