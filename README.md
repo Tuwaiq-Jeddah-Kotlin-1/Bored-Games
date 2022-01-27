@@ -38,3 +38,4 @@ Password: 1234567
 
 [Bored Games App SRS](https://github.com/Tuwaiq-Jeddah-Kotlin-1/Bored-Games/files/7949435/Bored.Games.App.SRS.pdf.pdf)
 
+[Bored Games App Presentation](https://drive.google.com/file/d/1duv6XJWatQGftPutL6w1Uu3TeABnX-LQ/view)
