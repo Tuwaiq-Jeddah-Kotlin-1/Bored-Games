@@ -31,3 +31,10 @@ Password: 1234567
 <img src="https://user-images.githubusercontent.com/91476808/151321990-a1c2dd60-f277-4344-97ba-6a2120094899.png" width="200" height="400" />
 <img src="https://user-images.githubusercontent.com/91476808/151322013-c2114699-d790-4e2d-b873-5ceb312aa609.png" width="200" height="400" />
 </p>
+
+# 🎗️ Links and Documentations
+
+[Bored Games WireFrame](https://www.figma.com/file/GQZglYUr9RXVaySLuNkhmg/Bored-Games?node-id=0%3A1)
+
+[Bored Games App SRS](https://github.com/Tuwaiq-Jeddah-Kotlin-1/Bored-Games/files/7949435/Bored.Games.App.SRS.pdf.pdf)
+
