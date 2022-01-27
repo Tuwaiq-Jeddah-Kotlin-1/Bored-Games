@@ -141,12 +141,12 @@ class Login : AppCompatActivity() {
 
 
 
-    fun detectUsers(userID:String) = CoroutineScope(Dispatchers.IO).launch {
+    private fun detectUsers(userID:String) = CoroutineScope(Dispatchers.IO).launch {
         try {
             //coroutine
             val db = FirebaseFirestore.getInstance()
             db.collection("Users")
-                .document("$userID")
+                .document(userID)
                 .get().addOnCompleteListener {
                     it
                     if (it.result?.exists()!!) {

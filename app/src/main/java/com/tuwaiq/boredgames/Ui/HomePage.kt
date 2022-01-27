@@ -7,7 +7,6 @@ import android.graphics.drawable.AnimationDrawable
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
@@ -16,22 +15,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import com.tuwaiq.boredgames.Auth.Login
 import com.tuwaiq.boredgames.R
 import com.tuwaiq.boredgames.Settings.BottomSheetFragment
-import com.tuwaiq.boredgames.SlidingPuzzle.SettingsDialogFragment
-import kotlinx.android.synthetic.main.activity_game1.*
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_signup.*
-import kotlinx.android.synthetic.main.activity_signup.sign_up_layout
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.io.IOException
-import java.lang.Exception
 
 class HomePage : AppCompatActivity() {
 
@@ -62,7 +50,7 @@ class HomePage : AppCompatActivity() {
 
 
         btnPlay.setOnClickListener {
-            startActivity(Intent(this, Games::class.java))
+            startActivity(Intent(this, ChoosingGames::class.java))
         }
         btnSound.setOnClickListener {
             playSound()
@@ -77,9 +65,10 @@ class HomePage : AppCompatActivity() {
     override fun onBackPressed() {
         Toast.makeText(applicationContext, getString(R.string.logout_first), Toast.LENGTH_SHORT).show()
     }
-    var mediaPlayer = MediaPlayer()
+    private var mediaPlayer = MediaPlayer()
 
-    fun playSound(){
+
+    private fun playSound(){
 
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
         if (!mediaPlayer.isPlaying){
@@ -104,6 +93,12 @@ class HomePage : AppCompatActivity() {
 
         }
     }
+
+    override fun onStop() {
+        super.onStop()
+        mediaPlayer.stop()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.delete_menu, menu)
 

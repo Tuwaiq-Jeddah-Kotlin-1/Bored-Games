@@ -135,6 +135,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                         dialog, _ ->
                     editUser()
                     getUser()
+
                     startActivity(Intent(this.context, HomePage::class.java))
                     dialog.dismiss()
                 }.setNegativeButton(getString(R.string.no)){

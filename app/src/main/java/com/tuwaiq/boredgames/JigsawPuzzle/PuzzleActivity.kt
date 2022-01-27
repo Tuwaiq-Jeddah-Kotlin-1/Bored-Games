@@ -16,9 +16,9 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class PuzzleActivity : AppCompatActivity() {
-    var pieces: ArrayList<PuzzlePiece?>? = null
-    var mCurrentPhotoPath: String? = null
-    var mCurrentPhotoUri: String? = null
+    private var pieces: ArrayList<PuzzlePiece?>? = null
+    private var mCurrentPhotoPath: String? = null
+    private var mCurrentPhotoUri: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_puzzle)

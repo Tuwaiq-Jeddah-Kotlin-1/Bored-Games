@@ -35,7 +35,7 @@
         <activity android:name=".Ui.HomePage"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Ui.Games"
+        <activity android:name=".Ui.ChoosingGames"
             android:configChanges="orientation"
             android:screenOrientation="portrait"/>
         <activity android:name=".Hangedman.GameActivity1"

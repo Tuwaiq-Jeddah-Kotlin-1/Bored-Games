@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_games.*
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_home.home_layout
 
-class Games : AppCompatActivity() {
+class ChoosingGames : AppCompatActivity() {
 
     lateinit var cardViewGame1 : CardView
     lateinit var cardViewGame2 : CardView
